@@ -1,0 +1,54 @@
+---
+const logoUrl = `${import.meta.env.BASE_URL}placeholders/logo.svg`;
+
+const categories = [
+  {
+    title: 'Private equity',
+    logos: ['Mutuelles Impact', 'Siparex']
+  },
+  {
+    title: 'Capital-risque',
+    logos: ['XAnge', 'Investisseur VC']
+  },
+  {
+    title: 'Investisseur en infrastructures durables',
+    logos: ['Infra Durable 1', 'Infra Durable 2']
+  },
+  {
+    title: 'PME-ETI',
+    logos: ['PME Client A', 'PME Client B']
+  },
+  {
+    title: 'Fédération',
+    logos: ['Fédération Partenaire', 'Réseau Professionnel']
+  }
+];
+---
+
+<div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+  {
+    categories.map((category, categoryIndex) => (
+      <article class="card reveal" style={`--delay:${categoryIndex * 70}ms`}>
+        <h3 class="text-xl">{category.title}</h3>
+        <ul class="mt-4 space-y-3">
+          {
+            category.logos.map((logoName) => (
+              <li class="flex items-center gap-3 rounded-lg border border-paper-300/15 bg-night-850/70 px-3 py-2">
+                <img
+                  src={logoUrl}
+                  alt={`Logo placeholder ${logoName}`}
+                  width="96"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
+                  class="h-10 w-20 rounded-sm border border-paper-300/20 object-cover"
+                />
+                <span class="text-sm text-paper-200">{logoName}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+    ))
+  }
+</div>

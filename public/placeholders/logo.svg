@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="160" viewBox="0 0 320 160" role="img" aria-labelledby="title desc">
+  <title id="title">Logo placeholder</title>
+  <desc id="desc">Placeholder de logo client ou association</desc>
+  <rect width="320" height="160" fill="#0d141d"/>
+  <rect x="14" y="14" width="292" height="132" rx="12" fill="#111a24" stroke="#dce3d8" stroke-opacity="0.25"/>
+  <circle cx="74" cy="80" r="26" fill="#339867"/>
+  <rect x="118" y="68" width="134" height="12" rx="4" fill="#dce3d8" fill-opacity="0.9"/>
+  <rect x="118" y="88" width="96" height="10" rx="4" fill="#dce3d8" fill-opacity="0.6"/>
+</svg>

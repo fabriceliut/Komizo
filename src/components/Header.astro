@@ -1,0 +1,95 @@
+---
+const links = [
+  { href: '#hero', label: 'Accueil' },
+  { href: '#apropos', label: 'À propos' },
+  { href: '#prestations', label: 'Prestations' },
+  { href: '#equipe', label: 'Équipe' },
+  { href: '#galaxie', label: 'Galaxie' },
+  { href: '#clients', label: 'Clients' },
+  { href: '#temoignages', label: 'Témoignages' },
+  { href: '#donations', label: 'Donations' },
+  { href: '#contact', label: 'Contact' }
+];
+---
+
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+  <div
+    id="header-shell"
+    class="mx-auto w-full max-w-6xl rounded-xl border border-paper-300/15 bg-night-950/80 px-4 py-3 backdrop-blur-sm transition-all duration-300 sm:px-6"
+  >
+    <div class="flex flex-wrap items-center justify-between gap-3">
+      <a href="#hero" class="font-serif text-xl text-paper-100 no-underline">Komizo Partners</a>
+
+      <button
+        id="nav-toggle"
+        type="button"
+        class="btn btn-secondary px-3 py-1.5 text-xs md:hidden"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        Menu
+      </button>
+
+      <nav
+        id="primary-nav"
+        class="hidden w-full border-t border-paper-300/15 pt-3 md:block md:w-auto md:border-0 md:pt-0"
+        aria-label="Navigation principale"
+      >
+        <ul class="flex flex-col gap-2 md:flex-row md:items-center md:gap-1">
+          {links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="inline-flex rounded-md px-3 py-2 text-sm text-paper-200 no-underline transition-colors duration-200 hover:text-accent-400"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  const headerShell = document.getElementById('header-shell');
+  const navToggle = document.getElementById('nav-toggle');
+  const primaryNav = document.getElementById('primary-nav');
+
+  const onScroll = () => {
+    if (!headerShell) {
+      return;
+    }
+
+    if (window.scrollY > 8) {
+      headerShell.classList.add('bg-night-900/90', 'border-paper-300/25');
+      headerShell.classList.remove('bg-night-950/80', 'border-paper-300/15');
+    } else {
+      headerShell.classList.add('bg-night-950/80', 'border-paper-300/15');
+      headerShell.classList.remove('bg-night-900/90', 'border-paper-300/25');
+    }
+  };
+
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  if (navToggle && primaryNav) {
+    navToggle.addEventListener('click', () => {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!isExpanded));
+      primaryNav.classList.toggle('hidden', isExpanded);
+    });
+
+    primaryNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          primaryNav.classList.add('hidden');
+          navToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  }
+</script>

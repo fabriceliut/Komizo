@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="600" viewBox="0 0 480 600" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">Placeholder photo de profil</desc>
+  <rect width="480" height="600" fill="#111a24"/>
+  <rect x="26" y="26" width="428" height="548" rx="20" fill="#0d141d" stroke="#dce3d8" stroke-opacity="0.2"/>
+  <circle cx="240" cy="224" r="88" fill="#2b384a"/>
+  <path d="M110 500c10-96 74-146 130-146s120 50 130 146" fill="#263445"/>
+  <rect x="150" y="456" width="180" height="16" rx="6" fill="#45b980" fill-opacity="0.7"/>
+  <text x="240" y="552" text-anchor="middle" fill="#dce3d8" font-family="'Source Sans 3', sans-serif" font-size="22">Photo à venir</text>
+</svg>
