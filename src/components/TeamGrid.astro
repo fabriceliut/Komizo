@@ -1,47 +1,86 @@
 ---
 const base = import.meta.env.BASE_URL;
 
-const members = [
-  {
-    name: 'Corentin Decouty',
-    role: 'Fondateur',
-    photo: `${base}images/team/corentin.jpg`,
-    expertise: "Développement d'alliances, pilotage de projets, due diligence stratégique et ESG",
-    experience: 'Siparex, Meridiam, Evolem, Mutualité Française',
-    bio: "Corentin travaille depuis plus de 12 ans avec des fonds de private equity, dont 5 en lien avec des sujets d'investissement et d'entrepreneuriat à impact. Réputé pour son franc-parler et son pragmatisme, il place les sujets d'ESG et de RSE au cœur de la stratégie et du modèle d'affaires de l'entreprise. Diplômé de l'ESSEC et Imperial College London."
-  },
+const founder = {
+  name: 'Corentin Decouty',
+  role: 'Fondateur',
+  photo: `${base}images/team/corentin.jpg`,
+  expertise: "Développement d'alliances, pilotage de projets, catalyseur, due diligence stratégique et ESG",
+  experience: 'Siparex (ETI, Mutuelles Impact), Meridiam (Yci Santé), Evolem, Destia, Mutualité Française, PMSI Strategy',
+  formation: 'ESSEC & Imperial College London',
+  bio: "Corentin travaille depuis plus de 12 ans avec des fonds de private equity, dont 5 en lien avec des sujets d'investissement et d'entrepreneuriat à impact. Réputé pour son franc-parler et son pragmatisme, il place les sujets d'ESG et de RSE au cœur de la stratégie et du modèle d'affaires de l'entreprise, en utilisant la finance comme un levier clé de transformation."
+};
+
+const partners = [
   {
     name: 'Laura-May',
-    role: 'Experte RH & Inclusion',
+    role: 'RH, inclusion, handicap',
     photo: `${base}images/team/lauramay.jpg`,
-    expertise: 'RH, inclusion, handicap',
-    experience: 'Destia, EPSA, Welcoop, RATP Dev',
-    bio: ''
+    experience: 'Destia, EPSA, Welcoop, RATP Dev'
   },
   {
     name: 'Aurélien',
-    role: 'Expert Achats & Opérations',
+    role: 'Achats, opérations',
     photo: `${base}images/team/aurelien.jpg`,
-    expertise: 'Achats, opérations',
-    experience: 'EPSA, Schneider Electric',
-    bio: ''
+    experience: 'EPSA, Schneider Electric'
   },
   {
     name: 'Sirine',
-    role: 'Direction RSE & Ecovadis',
+    role: 'Direction RSE, Ecovadis',
     photo: `${base}images/team/sirine.jpg`,
-    expertise: 'Direction RSE, Ecovadis',
-    experience: 'EPSA, KPMG',
-    bio: ''
+    experience: 'EPSA, KPMG'
   }
+];
+
+const network = [
+  { name: 'Gabriel', expertise: 'Circularité, stratégie', experience: 'Talan, Roland Berger' },
+  { name: 'Audrey', expertise: 'Gouvernance, coaching', experience: 'Evaneos, Lapeyre, Kiloutou' },
+  { name: 'Caroline', expertise: 'Sensibilisation, stratégie', experience: 'MySezame, Alterna, Mars' },
+  { name: 'Mylène', expertise: 'Communautés, formation', experience: 'Haatch, Ecolearn, Danone' },
+  { name: 'Elodie', expertise: 'ESG, finance durable', experience: 'Better Way, I&P' },
+  { name: 'Sébastien', expertise: 'R&D, supply chain', experience: 'Renault' },
+  { name: 'Agathe', expertise: 'CSRD', experience: 'Thermador, Biomérieux' },
 ];
 ---
 
-<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
-  {
-    members.map((member, index) => (
-      <article class="reveal text-center" style={`--delay:${index * 90}ms`}>
-        <div class="overflow-hidden rounded-2xl aspect-square mx-auto max-w-[280px]">
+<!-- TIER 1 : Fondateur — mise en avant large -->
+<div class="reveal">
+  <div class="rounded-2xl border border-gris-200 bg-white overflow-hidden shadow-card">
+    <div class="grid grid-cols-1 md:grid-cols-[320px_1fr] gap-0">
+      <div class="aspect-square md:aspect-auto">
+        <img
+          src={founder.photo}
+          alt={`Portrait de ${founder.name}`}
+          width="800"
+          height="800"
+          loading="lazy"
+          decoding="async"
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <div class="p-8 flex flex-col justify-center">
+        <p class="text-xs font-semibold uppercase tracking-widest text-vert-400 mb-2">{founder.role}</p>
+        <h3 class="text-3xl font-bold text-marine-800">{founder.name}</h3>
+        <p class="mt-4 text-base text-marine-800/75 leading-relaxed">{founder.bio}</p>
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="inline-flex items-center rounded-full bg-vert-100 px-3 py-1 text-xs font-medium text-marine-800">
+            {founder.expertise}
+          </span>
+        </div>
+        <p class="mt-3 text-xs text-marine-800/50 italic">{founder.experience}</p>
+        <p class="mt-1 text-xs text-marine-800/50">{founder.formation}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIER 2 : Partenaires clés avec photo -->
+<div class="mt-12">
+  <h3 class="text-lg font-semibold text-marine-800 mb-6 reveal">Partenaires clés</h3>
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+    {partners.map((member, index) => (
+      <article class="reveal rounded-2xl border border-gris-200 bg-white overflow-hidden shadow-card transition-shadow hover:shadow-soft" style={`--delay:${index * 90}ms`}>
+        <div class="aspect-square">
           <img
             src={member.photo}
             alt={`Portrait de ${member.name}`}
@@ -52,14 +91,32 @@ const members = [
             class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
-        <h3 class="mt-4 text-xl font-semibold text-marine-800">{member.name}</h3>
-        <p class="text-sm font-medium text-vert-400">{member.role}</p>
-        <p class="mt-1 text-xs text-marine-800/60">{member.expertise}</p>
-        <p class="text-xs text-marine-800/50 italic">{member.experience}</p>
-        {member.bio && (
-          <p class="mt-3 text-sm text-marine-800/70 text-left">{member.bio}</p>
-        )}
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-semibold text-marine-800">{member.name}</h3>
+          <p class="text-sm font-medium text-vert-400 mt-0.5">{member.role}</p>
+          <p class="text-xs text-marine-800/50 mt-1 italic">{member.experience}</p>
+        </div>
       </article>
-    ))
-  }
+    ))}
+  </div>
+</div>
+
+<!-- TIER 3 : Réseau étendu -->
+<div class="mt-12">
+  <h3 class="text-lg font-semibold text-marine-800 mb-2 reveal">Le réseau étendu</h3>
+  <p class="text-sm text-marine-800/60 mb-6 reveal" style="--delay:40ms">Selon les missions, Komizo mobilise des partenaires spécialisés issus de son réseau de confiance.</p>
+  <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+    {network.map((membre, i) => (
+      <div class="reveal rounded-xl bg-gris-100 p-4 text-center transition-colors hover:bg-vert-100" style={`--delay:${i * 50}ms`}>
+        <div class="mx-auto w-10 h-10 rounded-full bg-marine-800 flex items-center justify-center text-white text-sm font-semibold mb-2">
+          {membre.name.charAt(0)}
+        </div>
+        <p class="text-sm font-semibold text-marine-800">{membre.name}</p>
+        <p class="text-xs text-marine-800/60 mt-0.5">{membre.expertise}</p>
+      </div>
+    ))}
+    <div class="reveal rounded-xl border-2 border-dashed border-vert-400/30 p-4 flex items-center justify-center" style="--delay:400ms">
+      <p class="text-xs text-vert-500 text-center font-medium">+ d'autres experts selon vos besoins</p>
+    </div>
+  </div>
 </div>

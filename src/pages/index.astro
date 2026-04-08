@@ -9,16 +9,6 @@ const base = import.meta.env.BASE_URL;
 const heroImage = `${base}images/hero/hero-bg.jpg`;
 const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
 
-const collectif = [
-  { name: 'Gabriel', expertise: 'Circularité, Stratégie, ex DG et membre de Comex', experience: 'Talan, Roland Berger' },
-  { name: 'Audrey', expertise: 'Gouvernance, transmission, structuration Codir, coaching', experience: 'Evaneos, Lapeyre, Kiloutou' },
-  { name: 'Caroline', expertise: 'Sensibilisation, stratégie', experience: 'MySezame, Alterna, Mars' },
-  { name: 'Mylène', expertise: 'Animation de communautés, formation et sensibilisation', experience: 'Haatch, Ecolearn, Danone' },
-  { name: 'Elodie', expertise: 'ESG, finance durable, coaching', experience: 'Better Way, Investisseurs & Partenaires' },
-  { name: 'Sébastien', expertise: 'R&D, supply chain, ingénierie', experience: 'Renault' },
-  { name: 'Agathe', expertise: 'CSRD', experience: 'Thermador, Biomérieux, Kurt Salmon' },
-];
-
 const references = [
   {
     sector: 'ETI — Aide à domicile',
@@ -246,54 +236,32 @@ const engagements = [
     <!-- ÉQUIPE -->
     <Section id="equipe" title="L'équipe Komizo" tone="default">
       <TeamGrid />
-    </Section>
 
-    <!-- COLLECTIF -->
-    <Section id="collectif" title="Le collectif Komizo" subtitle="Nous intervenons en mode réseau : selon les missions, Komizo mobilise des partenaires spécialisés issus de son réseau de confiance." tone="muted">
-      <div class="reveal">
-        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {collectif.map((membre, i) => (
-            <div class="rounded-xl border border-gris-200 bg-white p-5 transition-shadow hover:shadow-card" style={`--delay:${i * 60}ms`}>
-              <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-full bg-marine-800 flex items-center justify-center text-white text-sm font-semibold flex-shrink-0">
-                  {membre.name.charAt(0)}
-                </div>
-                <h3 class="text-base font-semibold text-marine-800">{membre.name}</h3>
-              </div>
-              <p class="text-sm text-marine-800/70">{membre.expertise}</p>
-              <p class="text-xs text-marine-800/50 mt-1 italic">{membre.experience}</p>
-            </div>
-          ))}
-          <div class="rounded-xl border-2 border-dashed border-vert-400/40 bg-vert-100/50 p-5 flex items-center justify-center">
-            <p class="text-sm text-vert-500 text-center font-medium">...et d'autres experts selon vos besoins</p>
+      <!-- Rejoindre le collectif -->
+      <div id="collectif" class="mt-16 rounded-2xl bg-marine-800 p-8 text-white reveal">
+        <h3 class="text-xl font-semibold mb-3">Pourquoi rejoindre le collectif ?</h3>
+        <p class="text-white/80 mb-4">
+          Une alternative au cabinet classique et au freelance isolé.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Missions booster</p>
+            <p class="text-xs text-white/70 mt-1">Développement professionnel</p>
+          </div>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Support collectif</p>
+            <p class="text-xs text-white/70 mt-1">Engagement d'un cabinet</p>
+          </div>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Sécurité financière</p>
+            <p class="text-xs text-white/70 mt-1">Gap réduit TJM/revenus</p>
+          </div>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Liberté</p>
+            <p class="text-xs text-white/70 mt-1">Choix des missions</p>
           </div>
         </div>
-
-        <div class="mt-10 rounded-2xl bg-marine-800 p-8 text-white">
-          <h3 class="text-xl font-semibold mb-3">Pourquoi rejoindre le collectif ?</h3>
-          <p class="text-white/80 mb-4">
-            Une alternative au cabinet classique et au freelance isolé.
-          </p>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="rounded-lg bg-white/10 p-4">
-              <p class="text-sm font-semibold text-vert-400">Missions booster</p>
-              <p class="text-xs text-white/70 mt-1">Développement professionnel</p>
-            </div>
-            <div class="rounded-lg bg-white/10 p-4">
-              <p class="text-sm font-semibold text-vert-400">Support collectif</p>
-              <p class="text-xs text-white/70 mt-1">Engagement d'un cabinet</p>
-            </div>
-            <div class="rounded-lg bg-white/10 p-4">
-              <p class="text-sm font-semibold text-vert-400">Sécurité financière</p>
-              <p class="text-xs text-white/70 mt-1">Gap réduit TJM/revenus</p>
-            </div>
-            <div class="rounded-lg bg-white/10 p-4">
-              <p class="text-sm font-semibold text-vert-400">Liberté</p>
-              <p class="text-xs text-white/70 mt-1">Choix des missions</p>
-            </div>
-          </div>
-          <a href="#contact" class="btn btn-primary mt-6">Rejoindre le collectif</a>
-        </div>
+        <a href="#contact" class="btn btn-primary mt-6">Rejoindre le collectif</a>
       </div>
     </Section>
 
