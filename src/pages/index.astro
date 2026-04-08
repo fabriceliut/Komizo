@@ -6,6 +6,7 @@ import TeamGrid from '../components/TeamGrid.astro';
 import ContactForm from '../components/ContactForm.astro';
 
 const base = import.meta.env.BASE_URL;
+const heroImage = `${base}images/hero/hero-bg.jpg`;
 const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
 
 const references = [
@@ -66,12 +67,12 @@ const engagements = [
 ];
 
 const engagementIcons: Record<string, string> = {
-  chart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />',
-  heart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />',
-  light: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />',
-  leaf: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12m0 0l-.94 3.693c-.38 1.52.576 3.058 2.095 3.437 1.52.38 3.058-.576 3.437-2.095L15.5 12.75M9.75 12l5.75.75m0 0c2.08.27 4-1.3 4.27-3.5.27-2.08-1.3-4-3.5-4.27l-4.23-.55c-2.08-.27-4.28 1-4.55 3.18" />',
-  gift: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 13.5V7.5m-8.25 3.75h16.5" />',
-  rocket: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.59 14.37a48.474 48.474 0 00-6.05-6.05c.076-.165.156-.328.24-.489C11.24 5.15 13.64 3.2 16.5 2.27c.252-.082.526.058.608.31a48.08 48.08 0 011.927 8.19m-3.445 3.6a48.634 48.634 0 013.445-3.6m0 0c.168.076.332.156.494.24 2.68 1.46 4.63 3.86 5.56 6.72.082.252-.058.526-.31.608a48.08 48.08 0 01-8.19 1.927m2.446-9.495L14.956 12m0 0l-1.906 1.906M14.956 12l1.906-1.906M14.956 12l-1.906-1.906m0 0a48.08 48.08 0 00-3.653-.342.483.483 0 00-.473.342l-.89 2.968M7.49 9.654l-2.968.89a.483.483 0 00-.342.473c.03 1.24.15 2.456.342 3.653" />',
+  chart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l4-4 4 4 4-8 4 4" />',
+  heart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21C12 21 3 13.5 3 8.5 3 5.42 5.42 3 8.5 3c1.74 0 3.41.81 4.5 2.09A5.99 5.99 0 0117.5 3C20.58 3 23 5.42 23 8.5 23 13.5 12 21 12 21z" />' ,
+  light: '<circle cx="12" cy="9" r="5" stroke-width="2" fill="none"/><path stroke-linecap="round" stroke-width="2" d="M10 17h4M11 20h2M12 14v3" />',
+  leaf: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c0 0-8-4-8-12C4 6 8 2 12 2s8 4 8 8c0 8-8 12-8 12z" /><path stroke-linecap="round" stroke-width="2" d="M12 22V8M8 14l4-4 4 4" />',
+  gift: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z" />',
+  rocket: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15l-3 3m3-3l3 3m-3-3V2m0 0C8 2 4 6 4 10m8-8c4 0 8 4 8 8M7 21h10" />',
 };
 ---
 
@@ -81,37 +82,27 @@ const engagementIcons: Record<string, string> = {
   <main id="main-content" class="pt-16">
 
     <!-- HERO -->
-    <section id="hero" class="section-anchor relative bg-marine-800 py-24 sm:py-32 overflow-hidden">
-      <!-- Gradient pattern background -->
+    <section id="hero" class="section-anchor relative bg-marine-800 py-28 sm:py-36 overflow-hidden">
       <div class="absolute inset-0" aria-hidden="true">
-        <div class="absolute inset-0 bg-gradient-to-br from-marine-900 via-marine-800 to-marine-700"></div>
-        <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, #5cba9b 1px, transparent 0); background-size: 40px 40px;"></div>
+        <img src={heroImage} alt="" class="h-full w-full object-cover opacity-25" />
+        <div class="absolute inset-0 bg-gradient-to-r from-marine-800/90 via-marine-800/70 to-marine-800/50"></div>
       </div>
       <div class="relative mx-auto w-full max-w-6xl px-6 lg:px-10">
         <div class="reveal max-w-3xl">
-          <img src={logoUrl} alt="Komizo Partners" width="200" height="70" class="h-12 w-auto mb-8 opacity-90" />
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-tight">
+          <img src={logoUrl} alt="Komizo Partners" width="200" height="70" class="h-12 w-auto mb-10 opacity-90" />
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-[1.1]">
             Des PME solides<br />dans un monde instable
           </h1>
-          <p class="mt-6 max-w-2xl text-lg sm:text-xl text-white/80">
+          <p class="mt-8 max-w-2xl text-lg sm:text-xl text-white/75 leading-relaxed">
             Nous accompagnons dirigeants et investisseurs sur le long cours — pour que
             croissance rapide et transformation durable ne soient pas des injonctions
             contradictoires, mais les deux faces d'un même projet.
           </p>
-          <div class="mt-10 flex flex-wrap gap-4">
+          <div class="mt-12 flex flex-wrap gap-4">
             <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
-            <a href="#collectif" class="btn btn-secondary border-white/40 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
+            <a href="#collectif" class="btn btn-secondary border-white/30 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
           </div>
         </div>
-      </div>
-      <!-- Lighthouse rays decoration (brand motif) -->
-      <div class="absolute top-16 right-8 lg:right-16 opacity-[0.07] hidden lg:block pointer-events-none" aria-hidden="true">
-        <svg width="320" height="240" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0" y="88" width="40" height="40" rx="3" fill="#5cba9b" />
-          <path d="M40 95 L300 20" stroke="#5cba9b" stroke-width="3" stroke-linecap="round" />
-          <path d="M40 105 L310 90" stroke="#5cba9b" stroke-width="3" stroke-linecap="round" />
-          <path d="M40 115 L280 170" stroke="#5cba9b" stroke-width="3" stroke-linecap="round" />
-        </svg>
       </div>
     </section>
 

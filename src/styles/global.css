@@ -32,6 +32,16 @@ h2 {
   letter-spacing: 0.05em;
 }
 
+h2::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: #5cba9b;
+  margin-top: 0.75rem;
+  border-radius: 2px;
+}
+
 p,
 li {
   @apply text-marine-800/80 leading-relaxed;
