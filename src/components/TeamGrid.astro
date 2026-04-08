@@ -1,47 +1,64 @@
 ---
-const portraitUrl = `${import.meta.env.BASE_URL}placeholders/portrait.svg`;
+const base = import.meta.env.BASE_URL;
 
 const members = [
   {
-    name: 'Mathilde Motte',
-    bio: 'Mathilde est une ingénieure diplômée de l’Ecole des Ponts engagée dans la transition écologique depuis plus de 8 ans. Elle apprécie accompagner le changement collectivement et faire bouger les lignes de manière systémique en alliant sa culture technique avec des expériences de facilitatrice et de designeuse.'
-  },
-  {
-    name: 'Laura-May Tisserant',
-    bio: 'Laura-May a été DRH de PME sous LBO pendant 10 ans (chez EPSA), puis consultante indépendante pendant 3 ans reconnue pour son expertise en diversité-inclusion et handicap en particulier. Pour Laura-May, l’humain doit être au cœur de toutes les transformations, et l’accompagner avec toutes ses singularités dans ces changements structurants est le facteur clé de succès indispensable à toute réussite collective.'
-  },
-  {
     name: 'Corentin Decouty',
-    bio: 'Corentin travaille depuis plus de 10 ans avec des fonds de private equity, dont 5 en lien avec des sujets d’investissement et d’entrepreneuriat à impact. Réputé pour son franc-parler, Corentin a à cœur de placer les sujets d’ESG et de RSE au cœur de la stratégie et du modèle d’affaires de l’entreprise, en utilisant la finance comme un levier clé de transformation.'
+    role: 'Fondateur',
+    photo: `${base}images/team/corentin.jpg`,
+    expertise: "Développement d'alliances, pilotage de projets, due diligence stratégique et ESG",
+    experience: 'Siparex, Meridiam, Evolem, Mutualité Française',
+    bio: "Corentin travaille depuis plus de 12 ans avec des fonds de private equity, dont 5 en lien avec des sujets d'investissement et d'entrepreneuriat à impact. Réputé pour son franc-parler et son pragmatisme, il place les sujets d'ESG et de RSE au cœur de la stratégie et du modèle d'affaires de l'entreprise. Diplômé de l'ESSEC et Imperial College London."
   },
   {
-    name: 'Julie Lefebvre',
-    bio: 'Julie est diplômée d’emlyon business school et possède 5 ans d’expérience professionnelle en marketing (Ecotone, Danone) et accompagnement RSE. Passionnée par le sport et l’agroalimentaire, Julie a toujours à cœur d’apporter son énergie positive et contagieuse à des projets à fort impact social.'
+    name: 'Laura-May',
+    role: 'Experte RH & Inclusion',
+    photo: `${base}images/team/lauramay.jpg`,
+    expertise: 'RH, inclusion, handicap',
+    experience: 'Destia, EPSA, Welcoop, RATP Dev',
+    bio: ''
   },
   {
-    name: 'Aurélien Vachon',
-    bio: 'Aurélien a été directeur des achats pendant 4 ans au sein d’une PME Lyonnaise sous LBO et est diplômé en management industriel. Il est convaincu que les choix des partenaires d’affaires est un critère d’impact indispensable dans la mise en place d’une stratégie RSE robuste.'
+    name: 'Aurélien',
+    role: 'Expert Achats & Opérations',
+    photo: `${base}images/team/aurelien.jpg`,
+    expertise: 'Achats, opérations',
+    experience: 'EPSA, Schneider Electric',
+    bio: ''
+  },
+  {
+    name: 'Sirine',
+    role: 'Direction RSE & Ecovadis',
+    photo: `${base}images/team/sirine.jpg`,
+    expertise: 'Direction RSE, Ecovadis',
+    experience: 'EPSA, KPMG',
+    bio: ''
   }
 ];
 ---
 
-<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+<div class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
   {
     members.map((member, index) => (
-      <article class="card reveal" style={`--delay:${index * 90}ms`}>
-        <div class="overflow-hidden rounded-lg border border-paper-300/20 bg-night-850/70">
+      <article class="reveal text-center" style={`--delay:${index * 90}ms`}>
+        <div class="overflow-hidden rounded-2xl aspect-square mx-auto max-w-[280px]">
           <img
-            src={portraitUrl}
+            src={member.photo}
             alt={`Portrait de ${member.name}`}
-            width="480"
-            height="600"
+            width="800"
+            height="800"
             loading="lazy"
             decoding="async"
-            class="h-60 w-full object-cover"
+            class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
           />
         </div>
-        <h3 class="mt-4 text-2xl">{member.name}</h3>
-        <p class="mt-3 text-sm sm:text-base">{member.bio}</p>
+        <h3 class="mt-4 text-xl font-semibold text-marine-800">{member.name}</h3>
+        <p class="text-sm font-medium text-vert-400">{member.role}</p>
+        <p class="mt-1 text-xs text-marine-800/60">{member.expertise}</p>
+        <p class="text-xs text-marine-800/50 italic">{member.experience}</p>
+        {member.bio && (
+          <p class="mt-3 text-sm text-marine-800/70 text-left">{member.bio}</p>
+        )}
       </article>
     ))
   }

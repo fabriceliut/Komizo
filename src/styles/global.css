@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #070b10;
+  background-color: #ffffff;
 }
 
 body {
-  @apply m-0 bg-night-950 font-sans text-paper-100 antialiased;
+  @apply m-0 bg-white font-sans text-marine-800 antialiased;
 }
 
 main {
@@ -23,13 +23,13 @@ h1,
 h2,
 h3,
 h4 {
-  @apply font-serif tracking-tight text-paper-100;
+  @apply font-sans font-semibold tracking-tight text-marine-800;
   text-wrap: balance;
 }
 
 p,
 li {
-  @apply text-paper-200 leading-relaxed;
+  @apply text-marine-800/80 leading-relaxed;
 }
 
 a {
@@ -37,15 +37,15 @@ a {
 }
 
 a:hover {
-  @apply text-accent-400;
+  @apply text-vert-400;
 }
 
 ::selection {
-  @apply bg-accent-500/40 text-paper-100;
+  @apply bg-vert-400/30 text-marine-800;
 }
 
 .section-anchor {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 5rem;
 }
 
 .skip-link {
@@ -55,8 +55,8 @@ a:hover {
   z-index: 60;
   transform: translateY(-140%);
   border-radius: 0.5rem;
-  background: #f2f5f0;
-  color: #070b10;
+  background: #033745;
+  color: #ffffff;
   padding: 0.6rem 0.9rem;
   font-weight: 600;
   text-decoration: none;
@@ -68,41 +68,41 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 2px solid #45b980;
+  outline: 2px solid #5cba9b;
   outline-offset: 3px;
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold no-underline transition-all duration-200;
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold no-underline transition-all duration-200;
   }
 
   .btn-primary {
-    @apply bg-accent-500 text-paper-100 shadow-soft;
+    @apply bg-corail-400 text-white shadow-soft;
   }
 
   .btn-primary:hover {
-    @apply bg-accent-400 text-night-950;
+    @apply bg-corail-500;
   }
 
   .btn-primary:active {
-    @apply bg-accent-600 text-paper-100;
+    @apply bg-corail-500;
   }
 
   .btn-primary:disabled {
-    @apply cursor-not-allowed bg-night-800 text-paper-300 opacity-70;
+    @apply cursor-not-allowed bg-gris-300 text-gris-400 opacity-70;
   }
 
   .btn-secondary {
-    @apply border border-paper-300/40 bg-night-900/70 text-paper-100;
+    @apply border-2 border-marine-800 bg-transparent text-marine-800;
   }
 
   .btn-secondary:hover {
-    @apply border-accent-400/60 text-accent-400;
+    @apply border-vert-400 bg-vert-400 text-white;
   }
 
   .btn-secondary:active {
-    @apply border-accent-500/80 bg-night-850;
+    @apply border-vert-500 bg-vert-500;
   }
 
   .btn-secondary:disabled {
@@ -110,19 +110,19 @@ a:hover {
   }
 
   .card {
-    @apply rounded-xl border border-paper-300/15 bg-night-900/55 p-6 shadow-soft;
+    @apply rounded-xl border border-gris-200 bg-white p-6 shadow-card;
   }
 
   .input-field {
-    @apply w-full rounded-md border border-paper-300/30 bg-night-900/70 px-3.5 py-2.5 text-paper-100 placeholder:text-paper-300/80;
+    @apply w-full rounded-lg border border-gris-300 bg-white px-4 py-3 text-marine-800 placeholder:text-gris-400 transition-colors;
   }
 
   .input-field:hover {
-    @apply border-paper-200/60;
+    @apply border-marine-800/40;
   }
 
   .input-field:focus {
-    @apply border-accent-400;
+    @apply border-vert-400 outline-none ring-2 ring-vert-400/20;
   }
 }
 

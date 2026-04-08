@@ -7,9 +7,11 @@ interface Props {
 }
 
 const {
-  title = 'Komizo Partners | Transformation sociale et environnementale',
-  description = 'Accompagnement de PME-ETI à temps partagé et Operating Partner ESG pour les sociétés de gestion.'
+  title = 'Komizo Partners | Des PME solides dans un monde instable',
+  description = 'Komizo accompagne dirigeants de PME-ETI et investisseurs dans leur transformation durable — stratégie, ESG, impact. Société à mission basée à Lyon.'
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -18,17 +20,13 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#070b10" />
+    <meta name="theme-color" content="#033745" />
+    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>

@@ -1,53 +1,57 @@
 ---
+const base = import.meta.env.BASE_URL;
+const logoUrl = `${base}images/logos/komizo-logo.png`;
+
 const links = [
-  { href: '#hero', label: 'Accueil' },
   { href: '#apropos', label: 'À propos' },
-  { href: '#prestations', label: 'Prestations' },
+  { href: '#offres', label: 'Offres' },
   { href: '#equipe', label: 'Équipe' },
-  { href: '#galaxie', label: 'Galaxie' },
-  { href: '#clients', label: 'Clients' },
-  { href: '#temoignages', label: 'Témoignages' },
-  { href: '#donations', label: 'Donations' },
+  { href: '#references', label: 'Références' },
   { href: '#contact', label: 'Contact' }
 ];
 ---
 
 <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<header id="site-header" class="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-  <div
-    id="header-shell"
-    class="mx-auto w-full max-w-6xl rounded-xl border border-paper-300/15 bg-night-950/80 px-4 py-3 backdrop-blur-sm transition-all duration-300 sm:px-6"
-  >
-    <div class="flex flex-wrap items-center justify-between gap-3">
-      <a href="#hero" class="font-serif text-xl text-paper-100 no-underline">Komizo Partners</a>
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gris-200 transition-all duration-300">
+  <div class="mx-auto w-full max-w-6xl px-6 lg:px-10">
+    <div class="flex items-center justify-between h-16">
+      <a href="#hero" class="no-underline flex-shrink-0">
+        <img src={logoUrl} alt="Komizo Partners" width="140" height="50" class="h-8 w-auto" />
+      </a>
 
       <button
         id="nav-toggle"
         type="button"
-        class="btn btn-secondary px-3 py-1.5 text-xs md:hidden"
+        class="md:hidden p-2 text-marine-800 hover:text-vert-400"
         aria-expanded="false"
         aria-controls="primary-nav"
+        aria-label="Ouvrir le menu"
       >
-        Menu
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
 
       <nav
         id="primary-nav"
-        class="hidden w-full border-t border-paper-300/15 pt-3 md:block md:w-auto md:border-0 md:pt-0"
+        class="hidden w-full absolute top-16 left-0 bg-white border-b border-gris-200 md:relative md:top-auto md:block md:w-auto md:border-0 md:bg-transparent"
         aria-label="Navigation principale"
       >
-        <ul class="flex flex-col gap-2 md:flex-row md:items-center md:gap-1">
+        <ul class="flex flex-col gap-1 p-4 md:flex-row md:items-center md:gap-1 md:p-0">
           {links.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="inline-flex rounded-md px-3 py-2 text-sm text-paper-200 no-underline transition-colors duration-200 hover:text-accent-400"
+                class="block rounded-lg px-4 py-2 text-sm font-medium text-marine-800 no-underline transition-colors duration-200 hover:text-vert-400 hover:bg-vert-100"
               >
                 {link.label}
               </a>
             </li>
           ))}
+          <li class="mt-2 md:mt-0 md:ml-2">
+            <a href="#contact" class="btn btn-primary text-xs px-4 py-2">Nous contacter</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -55,26 +59,8 @@ const links = [
 </header>
 
 <script is:inline>
-  const headerShell = document.getElementById('header-shell');
   const navToggle = document.getElementById('nav-toggle');
   const primaryNav = document.getElementById('primary-nav');
-
-  const onScroll = () => {
-    if (!headerShell) {
-      return;
-    }
-
-    if (window.scrollY > 8) {
-      headerShell.classList.add('bg-night-900/90', 'border-paper-300/25');
-      headerShell.classList.remove('bg-night-950/80', 'border-paper-300/15');
-    } else {
-      headerShell.classList.add('bg-night-950/80', 'border-paper-300/15');
-      headerShell.classList.remove('bg-night-900/90', 'border-paper-300/25');
-    }
-  };
-
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
 
   if (navToggle && primaryNav) {
     navToggle.addEventListener('click', () => {

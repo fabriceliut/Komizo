@@ -3,338 +3,362 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Section from '../components/Section.astro';
 import TeamGrid from '../components/TeamGrid.astro';
-import LogoGrid from '../components/LogoGrid.astro';
 import ContactForm from '../components/ContactForm.astro';
 
-const heroImage = `${import.meta.env.BASE_URL}placeholders/hero.svg`;
-const galaxyImage = `${import.meta.env.BASE_URL}placeholders/portrait.svg`;
-const donationLogo = `${import.meta.env.BASE_URL}placeholders/logo.svg`;
+const base = import.meta.env.BASE_URL;
+const heroImage = `${base}images/hero/hero-bg.jpg`;
+const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
 
-const galaxyExperts = [
+const collectif = [
+  { name: 'Gabriel', expertise: 'Circularité, Stratégie, ex DG et membre de Comex', experience: 'Talan, Roland Berger' },
+  { name: 'Audrey', expertise: 'Gouvernance, transmission, structuration Codir, coaching', experience: 'Evaneos, Lapeyre, Kiloutou' },
+  { name: 'Caroline', expertise: 'Sensibilisation, stratégie', experience: 'MySezame, Alterna, Mars' },
+  { name: 'Mylène', expertise: 'Animation de communautés, formation et sensibilisation', experience: 'Haatch, Ecolearn, Danone' },
+  { name: 'Elodie', expertise: 'ESG, finance durable, coaching', experience: 'Better Way, Investisseurs & Partenaires' },
+  { name: 'Sébastien', expertise: 'R&D, supply chain, ingénierie', experience: 'Renault' },
+  { name: 'Agathe', expertise: 'CSRD', experience: 'Thermador, Biomérieux, Kurt Salmon' },
+];
+
+const references = [
   {
-    name: 'Cécile Wendling',
-    role: 'Prospectiviste',
-    detail: 'Ex Axa'
+    sector: 'ETI — Aide à domicile',
+    detail: 'Leader français, 10 000 salariés, accompagnée par des fonds de private equity',
+    enjeu: 'Accompagnement à la transformation en société à mission (depuis 2022)',
+    intervention: 'Animation d\'un groupe RSE, co-construction d\'une raison d\'être et d\'engagements stratégiques, structuration business x ESG 360°',
+    resultat: 'Amélioration du bien-être des auxiliaires de vie (73% → 78%), baisse significative du turnover et de l\'absentéisme',
+    verbatim: 'L\'accompagnement de Komizo a été un catalyseur essentiel pour nous, non seulement dans notre engagement à devenir une référence en matière d\'aide à domicile, mais aussi dans notre transformation en société à mission. Komizo nous challenge beaucoup, et ce de manière intelligente : c\'est ce qu\'on aime !',
+    auteur: 'Président'
   },
   {
-    name: 'Elodie Nocquet',
-    role: 'Experte ESG',
-    detail: 'Fondatrice de Better Way'
+    sector: 'PME industrielle — Leader mondial',
+    detail: '250 salariés, production de gants de boîtes à gants, sous private equity',
+    enjeu: 'Accompagnement à la transformation durable (depuis 2023)',
+    intervention: 'Sensibilisation à tous les niveaux, structuration de la politique RSE, création et animation d\'un comité RSE',
+    resultat: 'Réduction de 29% de l\'intensité carbone, développement de l\'éco-conception, embarquement de la filiale US',
+    verbatim: 'Komizo est un véritable catalyseur de la transformation environnementale et sociale. La combinaison de nos énergies nous insuffle un dynamisme puissant et inspirant pour motiver l\'ensemble des collaborateurs.',
+    auteur: 'Directrice QHSE et RSE'
   },
   {
-    name: 'Philippe Nantermoz',
-    role: 'Conférencier',
-    detail: 'Ex DG de Legallais'
+    sector: 'Private equity — 4 Mds€ sous gestion',
+    detail: 'Acteur indépendant du capital-investissement',
+    enjeu: 'Accompagnement opérationnel du fonds ETI (depuis 2023)',
+    intervention: 'Operating Partner ESG externalisé pour dix participations, depuis le sourcing jusqu\'à l\'exit',
+    resultat: 'Création de valeur durable, meilleur pilotage des risques et opportunités',
+    verbatim: 'Komizo travaille avec nous en tant que référent ESG opérationnel pour dix de nos participations. Leur approche est engagée, pragmatique et business. Komizo travaille comme partenaire de confiance.',
+    auteur: 'Partner'
   },
   {
-    name: 'Guy Tisserant',
-    role: 'Expert handicap',
-    detail: 'Champion paralympique'
+    sector: 'Infrastructures durables — 20 Mds€ sous gestion',
+    detail: 'Société d\'investissement indépendante spécialisée',
+    enjeu: 'Création et déploiement d\'une société de projet à impact (depuis 2023)',
+    intervention: 'Chefferie de projet d\'un consortium public-privé, rôle de Direction du développement',
+    resultat: 'Lancement opérationnel de la société de projet',
+    verbatim: 'Grâce aux compétences économico-financières de Corentin, à son énergie communicative et à sa capacité à animer un projet collectif, nous sommes proches du lancement opérationnel de ce projet particulièrement difficile et ambitieux.',
+    auteur: 'Directeur de l\'investissement local et durable'
   },
   {
-    name: 'Agathe Farges',
-    role: 'Experte CSRD',
-    detail: 'Indépendante'
-  },
-  {
-    name: 'Timothée Quellard',
-    role: 'Expert carbone et biodiv.',
-    detail: 'Cofondateur d’Ekodev'
+    sector: 'Fonds early-stage — 700M€ sous gestion',
+    detail: 'Fonds d\'investissement européen',
+    enjeu: 'Création et déploiement d\'un fonds à impact (depuis 2019)',
+    intervention: 'Lead sur la réponse à appel d\'offres (remporté), structuration du fonds, Operating Partner Impact',
+    resultat: 'Gain de l\'appel d\'offres, développement de la thématique impact x santé (près de 100 M€ sous gestion)',
+    verbatim: 'L\'implication de Corentin a été précieuse dès la phase de l\'appel d\'offres. Corentin nous a accompagné dans l\'analyse d\'opportunités d\'investissement, la construction et le suivi de feuilles de route impact.',
+    auteur: 'Directeur Général Délégué'
   }
 ];
 
-// TODO: Remplacer les noms et logos des associations par les assets finaux.
-const supportedAssociations = [
-  {
-    name: 'Association 1',
-    detail: 'Soutien à l’inclusion sociale'
-  },
-  {
-    name: 'Association 2',
-    detail: 'Protection des écosystèmes locaux'
-  },
-  {
-    name: 'Association 3',
-    detail: 'Éducation et insertion professionnelle'
-  }
+const engagements = [
+  { icon: '📊', text: 'Mesurer l\'impact de nos accompagnements' },
+  { icon: '🤝', text: 'Prendre soin de nous-mêmes pour prendre soin des autres' },
+  { icon: '💡', text: 'Encapaciter nos clients' },
+  { icon: '🌱', text: 'Contribuer à l\'écosystème via des coopérations et événements d\'intelligence collective' },
+  { icon: '❤️', text: 'Reverser 2% du CA à des associations' },
+  { icon: '🚀', text: 'Réinvestir 20% du résultat net dans des startups à impact' },
 ];
 ---
 
 <BaseLayout>
   <Header />
 
-  <main id="main-content" class="pt-28">
-    <section id="hero" class="section-anchor bg-night-950 py-20 sm:py-28">
-      <div class="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
-        <div class="reveal">
-          <p class="text-sm uppercase tracking-[0.2em] text-paper-300">Komizo Partners</p>
-          <h1 class="mt-4 max-w-3xl text-4xl sm:text-5xl lg:text-6xl">
-            Partenaire de confiance de votre transformation sociale et environnementale
+  <main id="main-content" class="pt-16">
+
+    <!-- HERO -->
+    <section id="hero" class="section-anchor relative bg-marine-800 py-24 sm:py-32 overflow-hidden">
+      <div class="absolute inset-0 opacity-20">
+        <img src={heroImage} alt="" class="h-full w-full object-cover" aria-hidden="true" />
+      </div>
+      <div class="relative mx-auto w-full max-w-6xl px-6 lg:px-10">
+        <div class="reveal max-w-3xl">
+          <img src={logoUrl} alt="Komizo Partners" width="200" height="70" class="h-12 w-auto mb-8 opacity-90" />
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl text-white font-bold leading-tight">
+            Des PME solides<br />dans un monde instable
           </h1>
-          <p class="mt-6 max-w-2xl text-lg sm:text-xl text-paper-200">
-            Accompagnement de PME-ETI à temps partagé<br />
-            Operating Partner ESG pour les sociétés de gestion
+          <p class="mt-6 max-w-2xl text-lg sm:text-xl text-white/80">
+            Nous accompagnons dirigeants et investisseurs sur le long cours — pour que
+            croissance rapide et transformation durable ne soient pas des injonctions
+            contradictoires, mais les deux faces d'un même projet.
           </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" class="btn btn-primary">Nous contacter</a>
-            <a href="#prestations" class="btn btn-secondary">Découvrir nos prestations</a>
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
+            <a href="#collectif" class="btn border-2 border-white/40 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
           </div>
         </div>
-
-        <aside class="card reveal" style="--delay:120ms">
-          <img
-            src={heroImage}
-            alt="Illustration placeholder de collaboration stratégique"
-            width="1200"
-            height="700"
-            class="h-56 w-full rounded-lg border border-paper-300/20 object-cover"
-            loading="eager"
-            decoding="async"
-          />
-          <ul class="mt-5 space-y-2 text-sm">
-            <li class="rounded-md border border-paper-300/15 bg-night-850/70 px-3 py-2 text-paper-200">
-              Société à mission à taille humaine
-            </li>
-            <li class="rounded-md border border-paper-300/15 bg-night-850/70 px-3 py-2 text-paper-200">
-              Basée à Lyon, active aux côtés des PME-ETI et des investisseurs
-            </li>
-            <li class="rounded-md border border-paper-300/15 bg-night-850/70 px-3 py-2 text-paper-200">
-              Approche pragmatique: risque-rendement-impact
-            </li>
-          </ul>
-        </aside>
       </div>
     </section>
 
-    <Section id="apropos" title="À PROPOS DE KOMIZO" tone="muted">
-      <div class="max-w-4xl space-y-5 text-base sm:text-lg reveal">
-        <p>
-          La raison d’être de Komizo est de mettre l’économie et la finance au service du vivant. Nous accompagnons
-          les organisations dans leur transformation stratégique et opérationnelle en (ré)intégrant les enjeux
-          écologiques et sociaux au cœur de leurs activités.
-        </p>
+    <!-- À PROPOS -->
+    <Section id="apropos" title="Qui sommes-nous" tone="default">
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div class="space-y-5 text-base sm:text-lg reveal">
+          <p>
+            <strong class="text-marine-800">Komizo</strong> est une société à mission à taille humaine, née en 2022 et basée à Lyon.
+            Notre raison d'être est de <strong>mettre l'économie et la finance au service du vivant</strong>.
+          </p>
+          <p>
+            Komizo accompagne des PME-ETI, sociétés de gestion et projets à impact de manière
+            stratégique et opérationnelle en (ré)intégrant les enjeux écologiques et sociaux au
+            cœur de leurs activités.
+          </p>
+          <p>
+            Partenaires de confiance sur la durée, nous facilitons la conduite du changement à
+            tous les niveaux, de manière concrète et pragmatique, en nous adaptant au contexte de
+            chacun et en favorisant la coopération en interne et avec l'écosystème.
+          </p>
+          <p class="text-sm italic text-marine-800/60">
+            Komizo signifie « prendre soin » en grec ancien.
+          </p>
+          <a href="#contact" class="inline-flex items-center gap-2 text-vert-400 font-medium no-underline hover:text-vert-500">
+            Découvrir notre rapport de mission 2024 →
+          </a>
+        </div>
 
-        <p>
-          Nous sommes une société à mission à taille humaine, née en 2022 et basée à Lyon, avec une expertise en
-          accompagnement de PME-ETI, projets à fort impact social, et sociétés de gestion. Partenaire de confiance sur
-          la durée, nous facilitons la conduite du changement à tous les niveaux, de manière concrète et pragmatique en
-          nous adaptant au contexte de chacun et en favorisant la coopération en interne et avec l’écosystème.
-        </p>
+        <div class="reveal" style="--delay:120ms">
+          <div class="rounded-2xl bg-vert-100 p-8">
+            <h3 class="text-xl font-semibold text-marine-800 mb-4">Ce qui nous distingue</h3>
+            <p class="text-marine-800/70">
+              Nous travaillons en moyenne une à deux journées par semaine pour nos clients, sur
+              des missions d'accompagnement s'étalant souvent sur plusieurs années, à la frontière
+              de la finance et de l'opérationnel, avec un modèle de collectif de freelances spécialisés.
+            </p>
+          </div>
 
-        <p>
-          Nous sommes convaincus que la performance financière ne peut pas être séparée de la performance
-          extra-financière, et que le triptyque “risque-rendement-impact” (cf. Sir Rohan Cohen) est progressivement en
-          train de remplacer le couple “risque-rendement”.
-        </p>
-
-        <p>
-          <!-- TODO: Remplacer par l’URL finale du rapport de mission 2024. -->
-          Découvrez ici notre
-          <a
-            href="https://example.com/rapport-de-mission-2024.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-accent-400"
-            >rapport de mission 2024</a
-          >.
-        </p>
-
-        <p>Komizo signifie “prendre soin” en grec ancien.</p>
+          <div class="mt-6 rounded-2xl border border-gris-200 p-8">
+            <h3 class="text-xl font-semibold text-marine-800 mb-4">Nos engagements</h3>
+            <ul class="space-y-3">
+              {engagements.map(e => (
+                <li class="flex items-start gap-3 text-sm text-marine-800/70">
+                  <span class="text-lg flex-shrink-0" aria-hidden="true">{e.icon}</span>
+                  <span>{e.text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </Section>
 
-    <Section id="prestations" title="PRESTATIONS DE SERVICE">
-      <div class="grid grid-cols-1 gap-6 xl:grid-cols-2">
-        <article class="card reveal">
-          <header>
-            <h3 class="text-2xl">Accompagnement à temps partagé</h3>
-            <p class="mt-2 text-paper-300">Pour les PME-ETI</p>
-          </header>
+    <!-- OFFRES -->
+    <Section id="offres" title="Nos offres" subtitle="Deux expertises complémentaires au service de la transformation durable" tone="muted">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
 
-          <ul class="mt-5 list-disc space-y-3 pl-5 marker:text-accent-400">
-            <li>
-              Formation - sensibilisation (CODIR/COMEX, collaborateurs): ateliers sur-mesure, Fresque du climat,
-              Climate Workout, ...
-            </li>
-            <li>Structuration de politiques RSE ambitieuses engageant les parties prenantes clés</li>
-            <li>Animation de comités de pilotage RSE & communautés d’ambassadeurs</li>
-            <li>Matrices de (double) matérialité</li>
-            <li>Raison d’être et engagements, modèle de mission</li>
-            <li>Construction de feuilles de route RSE opérationnelles</li>
-            <li>Mesure d’impact</li>
-            <li>Mise en relation avec des partenaires pour des outils spécifiques</li>
-            <li>Pilotage et animation de chantiers opérationnels</li>
-            <li>
-              Mise en œuvre d’actions spécifiques selon nos domaines d’expertises :
-              <ul class="mt-3 list-disc space-y-2 pl-5 marker:text-paper-300">
-                <li>
-                  Environnement: bilan carbone, stratégie bas-carbone, éco-conception, efficacité opérationnelle, ...
-                </li>
-                <li>
-                  Social: politique RH, politique diversité-insertion, handicap en milieu professionnel, enquête
-                  collaborateurs, recrutement, formation managers, sensibilisation collaborateurs, ...
-                </li>
-                <li>
-                  Gouvernance: CSRD, Société à mission, B Corp, Ecovadis, résilience du modèle d’affaires/prospective,
-                  achats responsables/éthique des affaires, marque employeur, ...
-                </li>
+        <!-- Offre Dirigeants -->
+        <article class="card reveal p-8">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-vert-200 mb-4">
+            <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-marine-800">Transformation durable et performance</h3>
+          <p class="mt-2 text-sm font-medium text-vert-400">Pour les dirigeants de PME-ETI</p>
+          <p class="mt-4 text-marine-800/70">
+            Dirigeant de PME ou ETI en phase de transformation, croissance ou transmission.
+          </p>
+
+          <div class="mt-6 space-y-4">
+            <div>
+              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Structuration stratégique</h4>
+              <ul class="space-y-2 text-sm text-marine-800/70">
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Chaîne de valeur & matrices de (double) matérialité</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Raison d'être et engagements stratégiques long terme</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Construction de feuilles de route RSE opérationnelles</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée, société à mission, Ecovadis, B Corp</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>CSRD</li>
               </ul>
-            </li>
-            <li>
-              Valorisation des engagements et actions auprès des parties prenantes internes et externes : rapport
-              d’impact, affichages, mise en récit, ...
-            </li>
-            <li>Lien et alignement avec l’actionnariat</li>
-          </ul>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Mise en œuvre</h4>
+              <ul class="space-y-2 text-sm text-marine-800/70">
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Bilan carbone, stratégie de décarbonation</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Feuille de route RH, baromètre social, marque employeur</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Politique handicap</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Achats responsables / éthique des affaires</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Formation et sensibilisation des équipes</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gris-200">
+            <p class="text-xs text-marine-800/50">Mission initiale de 6 à 12 mois • Min. 1 jour/semaine • Hybride présentiel/distanciel</p>
+          </div>
         </article>
 
-        <article class="card reveal" style="--delay:90ms">
-          <header>
-            <h3 class="text-2xl">Operating Partner ESG</h3>
-            <p class="mt-2 text-paper-300">Pour les sociétés de gestion</p>
-          </header>
+        <!-- Offre Investisseurs -->
+        <article class="card reveal p-8" style="--delay:120ms">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-corail-200 mb-4">
+            <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-marine-800">Accompagnement opérationnel ESG / Impact</h3>
+          <p class="mt-2 text-sm font-medium text-corail-400">Pour les investisseurs</p>
+          <p class="mt-4 text-marine-800/70">
+            Acteurs du capital-investissement : fonds PE, family offices, VC, infra.
+          </p>
 
-          <ul class="mt-5 list-disc space-y-3 pl-5 marker:text-accent-400">
-            <li>Formation - sensibilisation</li>
-            <li>Assistance à la création de fonds d’investissement à impact ou SFDR Article 9</li>
-            <li>PMO pour des réponses à appel d’offres</li>
-            <li>
-              Structuration de la thèse d’impact intégrant benchmark concurrentiel, positionnement
-              risque-rendement-impact, stratégie partenariale, méthodologie de mesure d’impact, mécanismes d’alignement
-              d’intérêts, mise en place de la gouvernance
-            </li>
-            <li>Assistance à l’allocation d’actifs</li>
-            <li>Screening de cible et due diligence stratégique et impact</li>
-            <li>
-              Définition d’objectifs impact (souvent en lien avec la dette et/ou le management pack) et de plans
-              d’action associés
-            </li>
-            <li>Animation de Comités Impact</li>
-            <li>Support opérationnel des sociétés investies pendant la période d’investissement</li>
-            <li>Coaching et suivi de la feuille de route fixée</li>
-            <li>Accompagnement opérationnel ESG / RSE cf. supra</li>
-            <li>PMO pour des projets à impact</li>
-          </ul>
+          <div class="mt-6 space-y-4">
+            <div>
+              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Notre rôle</h4>
+              <ul class="space-y-2 text-sm text-marine-800/70">
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Operating Partner ESG externalisé</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Accompagnement de la due diligence jusqu'à l'exit</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Plans de création de valeur durable</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Due diligence ESG</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Interventions spécifiques</h4>
+              <ul class="space-y-2 text-sm text-marine-800/70">
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>PMO pour des projets à impact natif</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Coordination avec prestataires externes</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Suivi des missions et transmission des sujets</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gris-200">
+            <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec un OP ESG salarié</p>
+          </div>
         </article>
       </div>
     </Section>
 
-    <Section id="equipe" title="ÉQUIPE" tone="muted">
-      <p class="mb-8 max-w-3xl text-base sm:text-lg reveal">
-        Des associés complémentaires… … (et qui ne se prennent pas trop au sérieux)
-      </p>
+    <!-- ÉQUIPE -->
+    <Section id="equipe" title="L'équipe Komizo" tone="default">
       <TeamGrid />
     </Section>
 
-    <Section
-      id="galaxie"
-      title="La galaxie Komizo"
-      subtitle="(liste non-exhaustive d’experts avec qui nous collaborons régulièrement)"
-    >
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
-        {
-          galaxyExperts.map((expert, index) => (
-            <article class="card reveal" style={`--delay:${index * 70}ms`}>
-              <div class="flex items-center gap-4">
-                <img
-                  src={galaxyImage}
-                  alt={`Portrait placeholder de ${expert.name}`}
-                  width="120"
-                  height="120"
-                  loading="lazy"
-                  decoding="async"
-                  class="h-16 w-16 rounded-full border border-paper-300/25 object-cover"
-                />
-                <div>
-                  <h3 class="text-2xl">{expert.name}</h3>
-                  <p class="text-sm text-accent-400">{expert.role}</p>
+    <!-- COLLECTIF -->
+    <Section id="collectif" title="Le collectif Komizo" subtitle="Nous intervenons en mode réseau : selon les missions, Komizo mobilise des partenaires spécialisés issus de son réseau de confiance." tone="muted">
+      <div class="reveal">
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {collectif.map((membre, i) => (
+            <div class="rounded-xl border border-gris-200 bg-white p-5 transition-shadow hover:shadow-card" style={`--delay:${i * 60}ms`}>
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-full bg-marine-800 flex items-center justify-center text-white text-sm font-semibold flex-shrink-0">
+                  {membre.name.charAt(0)}
+                </div>
+                <h3 class="text-base font-semibold text-marine-800">{membre.name}</h3>
+              </div>
+              <p class="text-sm text-marine-800/70">{membre.expertise}</p>
+              <p class="text-xs text-marine-800/50 mt-1 italic">{membre.experience}</p>
+            </div>
+          ))}
+          <div class="rounded-xl border-2 border-dashed border-vert-400/40 bg-vert-100/50 p-5 flex items-center justify-center">
+            <p class="text-sm text-vert-500 text-center font-medium">...et d'autres experts selon vos besoins</p>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-2xl bg-marine-800 p-8 text-white">
+          <h3 class="text-xl font-semibold mb-3">Pourquoi rejoindre le collectif ?</h3>
+          <p class="text-white/80 mb-4">
+            Une alternative au cabinet classique et au freelance isolé.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="rounded-lg bg-white/10 p-4">
+              <p class="text-sm font-semibold text-vert-400">Missions booster</p>
+              <p class="text-xs text-white/70 mt-1">Développement professionnel</p>
+            </div>
+            <div class="rounded-lg bg-white/10 p-4">
+              <p class="text-sm font-semibold text-vert-400">Support collectif</p>
+              <p class="text-xs text-white/70 mt-1">Engagement d'un cabinet</p>
+            </div>
+            <div class="rounded-lg bg-white/10 p-4">
+              <p class="text-sm font-semibold text-vert-400">Sécurité financière</p>
+              <p class="text-xs text-white/70 mt-1">Gap réduit TJM/revenus</p>
+            </div>
+            <div class="rounded-lg bg-white/10 p-4">
+              <p class="text-sm font-semibold text-vert-400">Liberté</p>
+              <p class="text-xs text-white/70 mt-1">Choix des missions</p>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary mt-6">Rejoindre le collectif</a>
+        </div>
+      </div>
+    </Section>
+
+    <!-- RÉFÉRENCES -->
+    <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="default">
+      <div class="space-y-8">
+        {references.map((ref, i) => (
+          <article class="card reveal p-8" style={`--delay:${i * 80}ms`}>
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8">
+              <div>
+                <div class="inline-flex items-center gap-2 mb-3">
+                  <span class="inline-block w-2 h-2 rounded-full bg-vert-400"></span>
+                  <span class="text-sm font-semibold text-vert-500">{ref.sector}</span>
+                </div>
+                <p class="text-sm text-marine-800/60">{ref.detail}</p>
+                <p class="mt-3 text-sm font-medium text-marine-800">{ref.enjeu}</p>
+                <p class="mt-2 text-sm text-marine-800/70">{ref.intervention}</p>
+                <div class="mt-4 inline-flex items-center gap-2 rounded-lg bg-vert-100 px-3 py-2">
+                  <svg class="w-4 h-4 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-sm font-medium text-vert-500">{ref.resultat}</span>
                 </div>
               </div>
-              <p class="mt-4 text-paper-200">{expert.detail}</p>
-            </article>
-          ))
-        }
+              <div class="rounded-xl bg-gris-100 p-6 flex flex-col justify-center">
+                <blockquote class="text-sm sm:text-base text-marine-800/80 italic leading-relaxed">
+                  "{ref.verbatim}"
+                </blockquote>
+                <p class="mt-4 text-sm font-semibold text-marine-800">— {ref.auteur}</p>
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </Section>
 
-    <Section id="clients" title="CLIENTS" tone="muted">
-      <div class="max-w-4xl reveal">
-        <p class="text-xl font-semibold text-paper-100">Des collaborations de long terme</p>
-        <p class="mt-3 text-base sm:text-lg">
-          Nous nous engageons envers tous nos clients en fournissant un accompagnement adapté à leurs besoins. Nous
-          croyons en la formation de partenariats solides et sommes fiers de notre portefeuille de clients en pleine
-          croissance. Jetez un œil à la liste ci-dessous pour avoir une idée de ceux avec qui nous travaillons.
-        </p>
-      </div>
-      <div class="mt-8">
-        <LogoGrid />
-      </div>
-    </Section>
+    <!-- CONTACT -->
+    <Section id="contact" title="Parlons-en" subtitle="Vous avez un projet, une question, une intuition ? Parlons-en." tone="muted">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.3fr]">
+        <div class="reveal space-y-6">
+          <div class="space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-marine-800 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-marine-800/60">Email</p>
+                <a href="mailto:corentin@komizo-partners.com" class="text-marine-800 font-medium no-underline hover:text-vert-400">corentin@komizo-partners.com</a>
+              </div>
+            </div>
 
-    <Section id="temoignages" title="TÉMOIGNAGES">
-      <figure class="card reveal max-w-5xl">
-        <blockquote class="text-base sm:text-lg">
-          “Mutuelles Impact est un fonds à impact spécialisé en santé et déploie une logique de collectif autour des
-          valeurs mutualistes dans le domaine de la santé durable. L’implication de Corentin a été précieuse dès la
-          phase de l’appel d’offres de la Mutualité Française dans la construction de la réponse du groupe SIPAREX.
-          Corentin a ensuite accompagné Mutuelles Impact dans l’analyse d’opportunités d’investissement, la
-          construction et le suivi de feuilles de route impact, ou bien encore l’accompagnement opérationnel de PME en
-          transformation - dans un rôle de chef de projets sur des chantiers liés au carbone, aux ressources humaines,
-          ou bien encore au passage en société à mission & B corp.”
-        </blockquote>
-        <figcaption class="mt-5 text-sm font-semibold text-accent-400">
-          Andréas Gall, Directeur Général Délégué de XAnge
-        </figcaption>
-      </figure>
-    </Section>
-
-    <Section
-      id="donations"
-      title="DONATIONS"
-      subtitle="Associations soutenues par Komizo (2% du CA net reversé)"
-      tone="muted"
-    >
-      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          supportedAssociations.map((association, index) => (
-            <article class="card reveal" style={`--delay:${index * 90}ms`}>
-              <img
-                src={donationLogo}
-                alt={`Logo placeholder de ${association.name}`}
-                width="320"
-                height="160"
-                loading="lazy"
-                decoding="async"
-                class="h-24 w-full rounded-md border border-paper-300/20 object-cover"
-              />
-              <h3 class="mt-4 text-2xl">{association.name}</h3>
-              <p class="mt-2 text-sm">{association.detail}</p>
-            </article>
-          ))
-        }
-      </div>
-    </Section>
-
-    <Section id="contact" title="NOUS CONTACTER">
-      <div class="grid grid-cols-1 gap-8 xl:grid-cols-[0.9fr_1.1fr]">
-        <div class="reveal space-y-5">
-          <p class="text-base sm:text-lg">
-            Vous souhaitez mieux aligner impact et performance, booster votre impact, ou explorer pour collaborer ?
-            Contactez-nous aujourd’hui et voyez ce que nous pouvons faire pour vous.
-          </p>
-
-          <p>
-            Email:
-            <a href="mailto:contact@komizo-partners.com" class="text-accent-400">contact@komizo-partners.com</a>
-          </p>
-
-          <p>
-            <!-- TODO: Remplacer par l’URL LinkedIn finale. -->
-            LinkedIn:
-            <a href="https://linkedin.com/company/komizo" target="_blank" rel="noopener noreferrer" class="text-accent-400"
-              >linkedin.com/company/komizo</a
-            >
-          </p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-marine-800 flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+              <div>
+                <p class="text-sm text-marine-800/60">LinkedIn</p>
+                <a href="https://www.linkedin.com/in/corentindecouty/" target="_blank" rel="noopener noreferrer" class="text-marine-800 font-medium no-underline hover:text-vert-400">linkedin.com/in/corentindecouty</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="reveal" style="--delay:80ms">
@@ -344,9 +368,14 @@ const supportedAssociations = [
     </Section>
   </main>
 
-  <footer class="border-t border-paper-300/15 bg-night-950 py-8">
-    <div class="mx-auto w-full max-w-6xl px-6 text-sm text-paper-300 lg:px-10">
-      © {new Date().getFullYear()} Komizo Partners. Tous droits réservés.
+  <footer class="border-t border-gris-200 bg-marine-800 py-10">
+    <div class="mx-auto w-full max-w-6xl px-6 lg:px-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <img src={logoUrl} alt="Komizo Partners" width="120" height="42" class="h-7 w-auto opacity-80" />
+        <p class="text-sm text-white/60">
+          © {new Date().getFullYear()} Komizo Partners. Tous droits réservés. Société à mission.
+        </p>
+      </div>
     </div>
   </footer>
 </BaseLayout>

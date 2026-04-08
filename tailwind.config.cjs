@@ -4,29 +4,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        night: {
-          950: '#070b10',
-          900: '#0d141d',
-          850: '#141d29',
-          800: '#1c2736'
+        marine: {
+          900: '#022d3a',
+          800: '#033745',
+          700: '#044d5f',
+          600: '#056579'
         },
-        accent: {
-          400: '#45b980',
-          500: '#339867',
-          600: '#277851'
+        vert: {
+          500: '#4aaa8b',
+          400: '#5cba9b',
+          300: '#7dcbb2',
+          200: '#c0ded2',
+          100: '#e8f3ee'
         },
-        paper: {
-          100: '#f2f5f0',
-          200: '#dce3d8',
-          300: '#b2bdb3'
+        gris: {
+          400: '#a7b4c0',
+          300: '#c4ced7',
+          200: '#e2e7ec',
+          100: '#f5f7f9'
+        },
+        corail: {
+          500: '#e06a4a',
+          400: '#ef795a',
+          300: '#efbfb4',
+          200: '#f8e2dc',
+          100: '#fdf3f0'
         }
       },
       fontFamily: {
-        sans: ['"Source Sans 3"', '"Segoe UI"', 'sans-serif'],
-        serif: ['"Fraunces"', '"Times New Roman"', 'serif']
+        sans: ['"Outfit"', '"Segoe UI"', 'system-ui', 'sans-serif']
       },
       boxShadow: {
-        soft: '0 14px 40px rgba(0, 0, 0, 0.25)'
+        soft: '0 4px 24px rgba(3, 55, 69, 0.08)',
+        card: '0 2px 12px rgba(3, 55, 69, 0.06)'
       }
     }
   },
