@@ -12,6 +12,7 @@ const {
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
+const ogImage = `${base}images/logos/komizo-logo.png`;
 ---
 
 <!doctype html>
@@ -23,14 +24,127 @@ const base = import.meta.env.BASE_URL;
     <meta name="theme-color" content="#033745" />
     <link rel="icon" type="image/png" href={`${base}favicon.png`} />
     <title>{title}</title>
+
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Komizo Partners" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Komizo Partners",
+      "description": description,
+      "url": "https://fabriceliut.github.io/Komizo/",
+      "logo": "https://fabriceliut.github.io/Komizo/images/logos/komizo-logo.png",
+      "foundingDate": "2022",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lyon",
+        "addressCountry": "FR"
+      },
+      "sameAs": ["https://www.linkedin.com/in/corentindecouty/"]
+    })} />
   </head>
   <body>
     <slot />
+
+    <script is:inline>
+      // IntersectionObserver for reveal animations
+      (function() {
+        const reveals = document.querySelectorAll('.reveal');
+        if (!reveals.length) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          reveals.forEach(el => el.classList.add('is-visible'));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        reveals.forEach(el => observer.observe(el));
+      })();
+
+      // Scroll spy for nav active state
+      (function() {
+        const sections = document.querySelectorAll('.section-anchor');
+        const navLinks = document.querySelectorAll('#primary-nav a[href^="#"]');
+        if (!sections.length || !navLinks.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.getAttribute('id');
+              navLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === '#' + id;
+                link.classList.toggle('text-vert-400', isActive);
+                link.classList.toggle('bg-vert-100', isActive);
+              });
+            }
+          });
+        }, { threshold: 0, rootMargin: '-30% 0px -60% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+      })();
+
+      // Back to top button
+      (function() {
+        const btn = document.getElementById('back-to-top');
+        if (!btn) return;
+
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 600) {
+            btn.classList.remove('hidden');
+            btn.classList.add('flex');
+          } else {
+            btn.classList.add('hidden');
+            btn.classList.remove('flex');
+          }
+        }, { passive: true });
+
+        btn.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+
+      // References progressive disclosure
+      (function() {
+        const toggle = document.getElementById('refs-toggle');
+        const extras = document.querySelectorAll('.refs-extra');
+        if (!toggle || !extras.length) return;
+
+        toggle.addEventListener('click', () => {
+          const expanded = toggle.getAttribute('aria-expanded') === 'true';
+          extras.forEach(el => el.classList.toggle('hidden', expanded));
+          toggle.setAttribute('aria-expanded', String(!expanded));
+          toggle.textContent = expanded ? 'Voir toutes les références' : 'Voir moins';
+        });
+      })();
+    </script>
   </body>
 </html>

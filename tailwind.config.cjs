@@ -11,6 +11,7 @@ module.exports = {
           600: '#056579'
         },
         vert: {
+          600: '#3a927a',
           500: '#4aaa8b',
           400: '#5cba9b',
           300: '#7dcbb2',
@@ -24,6 +25,7 @@ module.exports = {
           100: '#f5f7f9'
         },
         corail: {
+          600: '#d45a3a',
           500: '#e06a4a',
           400: '#ef795a',
           300: '#efbfb4',

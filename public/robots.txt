@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fabriceliut.github.io/Komizo/sitemap-index.xml

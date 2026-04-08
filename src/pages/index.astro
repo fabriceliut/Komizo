@@ -6,7 +6,6 @@ import TeamGrid from '../components/TeamGrid.astro';
 import ContactForm from '../components/ContactForm.astro';
 
 const base = import.meta.env.BASE_URL;
-const heroImage = `${base}images/hero/hero-bg.jpg`;
 const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
 
 const references = [
@@ -25,7 +24,7 @@ const references = [
     enjeu: 'Accompagnement à la transformation durable (depuis 2023)',
     intervention: 'Sensibilisation à tous les niveaux, structuration de la politique RSE, création et animation d\'un comité RSE',
     resultat: 'Réduction de 29% de l\'intensité carbone, développement de l\'éco-conception, embarquement de la filiale US',
-    verbatim: 'Komizo est un véritable catalyseur de la transformation environnementale et sociale. La combinaison de nos énergies nous insuffle un dynamisme puissant et inspirant pour motiver l\'ensemble des collaborateurs.',
+    verbatim: 'Komizo est un v\u00e9ritable catalyseur de la transformation environnementale et sociale. Leur approche nous aide \u00e0 structurer notre strat\u00e9gie RSE de mani\u00e8re concr\u00e8te et pragmatique. La combinaison de nos \u00e9nergies nous insuffle un dynamisme puissant et inspirant pour motiver l\'ensemble des collaborateurs, y compris notre filiale am\u00e9ricaine.',
     auteur: 'Directrice QHSE et RSE'
   },
   {
@@ -34,7 +33,7 @@ const references = [
     enjeu: 'Accompagnement opérationnel du fonds ETI (depuis 2023)',
     intervention: 'Operating Partner ESG externalisé pour dix participations, depuis le sourcing jusqu\'à l\'exit',
     resultat: 'Création de valeur durable, meilleur pilotage des risques et opportunités',
-    verbatim: 'Komizo travaille avec nous en tant que référent ESG opérationnel pour dix de nos participations. Leur approche est engagée, pragmatique et business. Komizo travaille comme partenaire de confiance.',
+    verbatim: 'Komizo travaille avec nous en tant que référent ESG opérationnel pour dix de nos participations. Leur approche est engagée, pragmatique et business. Ils interviennent depuis le sourcing jusqu\'au suivi opérationnel. Komizo travaille comme partenaire de confiance, avec un vrai rôle d\'Operating Partner externalisé.',
     auteur: 'Partner'
   },
   {
@@ -83,8 +82,10 @@ const engagementIcons: Record<string, string> = {
 
     <!-- HERO -->
     <section id="hero" class="section-anchor relative bg-marine-800 py-24 sm:py-32 overflow-hidden">
-      <div class="absolute inset-0 opacity-20">
-        <img src={heroImage} alt="" class="h-full w-full object-cover" aria-hidden="true" />
+      <!-- Gradient pattern background -->
+      <div class="absolute inset-0" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-br from-marine-900 via-marine-800 to-marine-700"></div>
+        <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, #5cba9b 1px, transparent 0); background-size: 40px 40px;"></div>
       </div>
       <div class="relative mx-auto w-full max-w-6xl px-6 lg:px-10">
         <div class="reveal max-w-3xl">
@@ -99,7 +100,7 @@ const engagementIcons: Record<string, string> = {
           </p>
           <div class="mt-10 flex flex-wrap gap-4">
             <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
-            <a href="#collectif" class="btn border-2 border-white/40 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
+            <a href="#collectif" class="btn btn-secondary border-white/40 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
           </div>
         </div>
       </div>
@@ -135,7 +136,18 @@ const engagementIcons: Record<string, string> = {
           <p class="text-sm italic text-marine-800/60">
             Komizo signifie « prendre soin » en grec ancien.
           </p>
-          <a href="#contact" class="inline-flex items-center gap-2 text-vert-400 font-medium no-underline hover:text-vert-500">
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Multidisciplinarité</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Agilité</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Flexibilité</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Pragmatisme</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Proximité</span>
+          </div>
+          <p class="text-sm text-marine-800/70 mt-3">
+            L'avantage par rapport aux cabinets classiques est le niveau de séniorité et la continuité
+            de nos accompagnements sur la durée, avec un interlocuteur dédié.
+          </p>
+          <a href="#contact" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500">
             Découvrir notre rapport de mission 2024 →
           </a>
         </div>
@@ -167,17 +179,17 @@ const engagementIcons: Record<string, string> = {
 
     <!-- OFFRES -->
     <Section id="offres" title="Nos offres" subtitle="Deux expertises complémentaires au service de la transformation durable" tone="muted">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
 
         <!-- Offre Dirigeants -->
-        <article class="card reveal p-8">
+        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-vert-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
           </div>
           <h3 class="text-2xl font-semibold text-marine-800">Transformation durable et performance</h3>
-          <p class="mt-2 text-sm font-medium text-vert-400">Pour les dirigeants de PME-ETI</p>
+          <p class="mt-2 text-sm font-medium text-vert-600">Pour les dirigeants de PME-ETI</p>
           <p class="mt-4 text-marine-800/70">
             Dirigeant de PME ou ETI en phase de transformation, croissance ou transmission.
           </p>
@@ -208,20 +220,20 @@ const engagementIcons: Record<string, string> = {
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-gris-200">
+          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
             <p class="text-xs text-marine-800/50">Mission initiale de 6 à 12 mois • Min. 1 jour/semaine • Hybride présentiel/distanciel</p>
           </div>
         </article>
 
         <!-- Offre Investisseurs -->
-        <article class="card reveal p-8" style="--delay:120ms">
+        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:120ms">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-corail-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
           <h3 class="text-2xl font-semibold text-marine-800">Accompagnement opérationnel ESG / Impact</h3>
-          <p class="mt-2 text-sm font-medium text-corail-400">Pour les investisseurs</p>
+          <p class="mt-2 text-sm font-medium text-corail-600">Pour les investisseurs</p>
           <p class="mt-4 text-marine-800/70">
             Acteurs du capital-investissement : fonds PE, family offices, VC, infra.
           </p>
@@ -248,12 +260,20 @@ const engagementIcons: Record<string, string> = {
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-gris-200">
+          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
             <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec la présence d'un OP ESG salarié</p>
           </div>
         </article>
       </div>
     </Section>
+
+    <!-- CTA intermédiaire -->
+    <div class="bg-marine-800 py-12">
+      <div class="mx-auto w-full max-w-6xl px-6 lg:px-10 text-center reveal">
+        <p class="text-xl sm:text-2xl text-white font-semibold">Un projet de transformation ? Une question ?</p>
+        <a href="#contact" class="btn btn-primary mt-6 text-base px-8 py-4">Parlons-en</a>
+      </div>
+    </div>
 
     <!-- ÉQUIPE -->
     <Section id="equipe" title="L'équipe Komizo" tone="default">
@@ -289,14 +309,14 @@ const engagementIcons: Record<string, string> = {
 
     <!-- RÉFÉRENCES -->
     <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="muted">
-      <div class="space-y-8">
+      <div id="refs-container" class="space-y-8">
         {references.map((ref, i) => (
-          <article class="card reveal p-8" style={`--delay:${i * 80}ms`}>
+          <article class:list={["card reveal p-8", i >= 2 && "refs-extra hidden"]} style={`--delay:${i * 80}ms`}>
             <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8">
               <div>
                 <div class="inline-flex items-center gap-2 mb-3">
                   <span class="inline-block w-2 h-2 rounded-full bg-vert-400"></span>
-                  <span class="text-sm font-semibold text-vert-500">{ref.sector}</span>
+                  <span class="text-sm font-semibold text-vert-600">{ref.sector}</span>
                 </div>
                 <p class="text-sm text-marine-800/60">{ref.detail}</p>
                 <p class="mt-3 text-sm font-medium text-marine-800">{ref.enjeu}</p>
@@ -305,7 +325,7 @@ const engagementIcons: Record<string, string> = {
                   <svg class="w-4 h-4 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span class="text-sm font-medium text-vert-500">{ref.resultat}</span>
+                  <span class="text-sm font-medium text-vert-600">{ref.resultat}</span>
                 </div>
               </div>
               <div class="rounded-xl bg-gris-100 p-6 flex flex-col justify-center">
@@ -317,6 +337,11 @@ const engagementIcons: Record<string, string> = {
             </div>
           </article>
         ))}
+      </div>
+      <div class="mt-8 text-center">
+        <button id="refs-toggle" type="button" class="btn btn-secondary text-sm" aria-expanded="false">
+          Voir toutes les références
+        </button>
       </div>
     </Section>
 
@@ -358,13 +383,69 @@ const engagementIcons: Record<string, string> = {
     </Section>
   </main>
 
-  <footer class="border-t border-gris-200 bg-marine-800 py-10">
+  <!-- Back to top button -->
+  <button
+    id="back-to-top"
+    type="button"
+    class="fixed bottom-6 right-6 z-40 hidden w-11 h-11 rounded-full bg-marine-800 text-white shadow-soft items-center justify-center transition-all duration-300 hover:bg-vert-400 focus:outline-none focus:ring-2 focus:ring-vert-400"
+    aria-label="Retour en haut"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </button>
+
+  <footer class="bg-marine-800 py-14 border-t border-white/10">
     <div class="mx-auto w-full max-w-6xl px-6 lg:px-10">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <img src={logoUrl} alt="Komizo Partners" width="120" height="42" class="h-7 w-auto opacity-80" />
-        <p class="text-sm text-white/60">
-          © {new Date().getFullYear()} Komizo Partners. Tous droits réservés. Société à mission.
+      <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+        <!-- Col 1: Logo + raison d'être -->
+        <div>
+          <img src={logoUrl} alt="Komizo Partners" width="120" height="42" class="h-8 w-auto opacity-90 mb-4" />
+          <p class="text-sm text-white/60 leading-relaxed">
+            Société à mission — Mettre l'économie et la finance au service du vivant.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Navigation</p>
+          <ul class="space-y-2">
+            <li><a href="#apropos" class="text-sm text-white/70 no-underline hover:text-vert-400">À propos</a></li>
+            <li><a href="#offres" class="text-sm text-white/70 no-underline hover:text-vert-400">Nos offres</a></li>
+            <li><a href="#equipe" class="text-sm text-white/70 no-underline hover:text-vert-400">L'équipe</a></li>
+            <li><a href="#references" class="text-sm text-white/70 no-underline hover:text-vert-400">Références</a></li>
+            <li><a href="#contact" class="text-sm text-white/70 no-underline hover:text-vert-400">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact + liens -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Contact</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="mailto:corentin@komizo-partners.com" class="text-sm text-white/70 no-underline hover:text-vert-400 inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                corentin@komizo-partners.com
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/corentindecouty/" target="_blank" rel="noopener noreferrer" class="text-sm text-white/70 no-underline hover:text-vert-400 inline-flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-white/40">
+          © {new Date().getFullYear()} Komizo Partners — SASU à mission • Lyon, France
         </p>
+        <div class="flex items-center gap-4">
+          <a href="#contact" class="text-xs text-white/40 no-underline hover:text-white/70">Mentions légales</a>
+          <a href="#contact" class="text-xs text-white/40 no-underline hover:text-white/70">Politique de confidentialité</a>
+        </div>
       </div>
     </div>
   </footer>
