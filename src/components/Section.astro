@@ -28,7 +28,14 @@ const bgClass = {
     {
       (title || subtitle) && (
         <header class="mb-10 sm:mb-12 reveal">
-          {title && <h2 class:list={["text-3xl sm:text-4xl lg:text-5xl", tone === 'dark' ? 'text-white' : 'text-marine-800']}>{title}</h2>}
+          {title && (
+            <div class="flex items-center gap-4">
+              <svg class="w-6 h-6 flex-shrink-0 opacity-60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <polygon points="12,2 22,22 2,22" stroke={tone === 'dark' ? '#5cba9b' : '#033745'} stroke-width="1.5" fill="none" />
+              </svg>
+              <h2 class:list={["text-3xl sm:text-4xl lg:text-5xl", tone === 'dark' ? 'text-white' : 'text-marine-800']}>{title}</h2>
+            </div>
+          )}
           {subtitle && <p class:list={["mt-3 max-w-3xl text-base sm:text-lg", tone === 'dark' ? 'text-white/80' : 'text-marine-800/70']}>{subtitle}</p>}
         </header>
       )

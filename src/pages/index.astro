@@ -94,6 +94,19 @@ const engagements = [
           </div>
         </div>
       </div>
+      <!-- Triangle decorations (lighthouse rays from brand charter) -->
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden" aria-hidden="true">
+        <svg class="relative block w-full" style="height:60px" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="0,60 600,0 1200,60" fill="#ffffff" />
+        </svg>
+      </div>
+      <!-- Subtle triangle accent -->
+      <div class="absolute top-12 right-10 opacity-10 hidden lg:block" aria-hidden="true">
+        <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="90,10 170,170 10,170" stroke="#5cba9b" stroke-width="2" fill="none" />
+          <polygon points="90,40 145,150 35,150" stroke="#5cba9b" stroke-width="1" fill="none" opacity="0.6" />
+        </svg>
+      </div>
     </section>
 
     <!-- À PROPOS -->
@@ -173,6 +186,9 @@ const engagements = [
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Construction de feuilles de route RSE opérationnelles</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée, société à mission, Ecovadis, B Corp</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>CSRD</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Résilience du modèle d'affaires / analyse de prospective</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Lien et alignement avec les partenaires financiers (critères ESG, SLL, management package)</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Diagnostic économie circulaire</li>
               </ul>
             </div>
             <div>
@@ -211,8 +227,9 @@ const engagements = [
               <ul class="space-y-2 text-sm text-marine-800/70">
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Operating Partner ESG externalisé</li>
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Accompagnement de la due diligence jusqu'à l'exit</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Plans de création de valeur durable</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Élaboration de plans de création de valeur durable</li>
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Due diligence ESG</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Assistance à la réalisation des chantiers jugés prioritaires</li>
               </ul>
             </div>
             <div>
@@ -227,7 +244,7 @@ const engagements = [
           </div>
 
           <div class="mt-6 pt-4 border-t border-gris-200">
-            <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec un OP ESG salarié</p>
+            <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec la présence d'un OP ESG salarié</p>
           </div>
         </article>
       </div>
@@ -266,7 +283,7 @@ const engagements = [
     </Section>
 
     <!-- RÉFÉRENCES -->
-    <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="default">
+    <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="muted">
       <div class="space-y-8">
         {references.map((ref, i) => (
           <article class="card reveal p-8" style={`--delay:${i * 80}ms`}>
@@ -299,7 +316,7 @@ const engagements = [
     </Section>
 
     <!-- CONTACT -->
-    <Section id="contact" title="Parlons-en" subtitle="Vous avez un projet, une question, une intuition ? Parlons-en." tone="muted">
+    <Section id="contact" title="Parlons-en" subtitle="Vous avez un projet, une question, une intuition ? Parlons-en." tone="default">
       <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_1.3fr]">
         <div class="reveal space-y-6">
           <div class="space-y-4">

@@ -27,6 +27,11 @@ h4 {
   text-wrap: balance;
 }
 
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 p,
 li {
   @apply text-marine-800/80 leading-relaxed;
