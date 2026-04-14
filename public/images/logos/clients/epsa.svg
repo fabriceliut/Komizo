@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev/svgjs" width="30" height="30"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SvgjsG1033">
+<mask id="SvgjsMask1032" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
+<rect id="SvgjsRect1031" width="30" height="30" fill="#E0B124"></rect>
+</mask>
+<g mask="url(#mask0_9323_19161)">
+<g id="SvgjsG1030">
+<path d="M25.2643 10.5992L28 15.1778L27.9981 15.4884L17.772 15.5091L12.929 10.5982L12.9114 3.50073L17.6839 0.818359L17.7409 0.820671L17.7484 10.6106L25.2643 10.5992Z" fill="#E0B124"></path>
+<path d="M2.00335 14.406L12.2406 14.3912L12.2443 14.3719L17.0873 19.2829L17.0761 19.2769L17.0915 26.5573L12.433 29.1805L12.2644 29.182L12.253 19.2838L4.79412 19.2975L2 14.6166L2.00335 14.406Z" fill="#E0B124"></path>
+</g>
+</g>
+</g>
+</svg><style>@media (prefers-color-scheme: light) { :root { filter: none; } }
+@media (prefers-color-scheme: dark) { :root { filter: contrast(0.3846153846153846) brightness(4.5); } }
+</style></svg>

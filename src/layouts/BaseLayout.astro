@@ -132,18 +132,61 @@ const ogImage = `${base}images/logos/komizo-logo.png`;
         });
       })();
 
-      // References progressive disclosure
+      // References carousel
       (function() {
-        const toggle = document.getElementById('refs-toggle');
-        const extras = document.querySelectorAll('.refs-extra');
-        if (!toggle || !extras.length) return;
+        const slides = document.querySelectorAll('.refs-slide');
+        const dots = document.querySelectorAll('.refs-dot');
+        const prevBtn = document.getElementById('refs-prev');
+        const nextBtn = document.getElementById('refs-next');
+        if (!slides.length || !prevBtn || !nextBtn) return;
 
-        toggle.addEventListener('click', () => {
-          const expanded = toggle.getAttribute('aria-expanded') === 'true';
-          extras.forEach(el => el.classList.toggle('hidden', expanded));
-          toggle.setAttribute('aria-expanded', String(!expanded));
-          toggle.textContent = expanded ? 'Voir toutes les références' : 'Voir moins';
+        let current = 0;
+        const total = slides.length;
+
+        function showSlide(index) {
+          slides.forEach((s, i) => {
+            s.style.display = i === index ? '' : 'none';
+          });
+          dots.forEach((d, i) => {
+            d.classList.toggle('bg-vert-400', i === index);
+            d.classList.toggle('bg-gris-300', i !== index);
+          });
+          prevBtn.disabled = index === 0;
+          nextBtn.disabled = index === total - 1;
+          current = index;
+        }
+
+        prevBtn.addEventListener('click', () => {
+          if (current > 0) showSlide(current - 1);
         });
+
+        nextBtn.addEventListener('click', () => {
+          if (current < total - 1) showSlide(current + 1);
+        });
+
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            showSlide(Number(dot.dataset.index));
+          });
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        const carousel = document.getElementById('refs-carousel');
+        if (carousel) {
+          carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+          }, { passive: true });
+          carousel.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) {
+              if (diff > 0 && current < total - 1) showSlide(current + 1);
+              else if (diff < 0 && current > 0) showSlide(current - 1);
+            }
+          }, { passive: true });
+        }
+
+        showSlide(0);
       })();
     </script>
   </body>

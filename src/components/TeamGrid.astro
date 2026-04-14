@@ -29,17 +29,55 @@ const partners = [
     role: 'Direction RSE, Ecovadis',
     photo: `${base}images/team/sirine.jpg`,
     experience: 'EPSA, KPMG'
-  }
-];
-
-const network = [
-  { name: 'Gabriel', expertise: 'Circularité, stratégie', experience: 'Talan, Roland Berger' },
-  { name: 'Audrey', expertise: 'Gouvernance, coaching', experience: 'Evaneos, Lapeyre, Kiloutou' },
-  { name: 'Caroline', expertise: 'Sensibilisation, stratégie 🇧🇪', experience: 'MySezame, Alterna, Mars' },
-  { name: 'Mylène', expertise: 'Communautés, formation', experience: 'Haatch, Ecolearn, Danone' },
-  { name: 'Elodie', expertise: 'ESG, finance durable', experience: 'Better Way, I&P' },
-  { name: 'Sébastien', expertise: 'R&D, supply chain', experience: 'Renault' },
-  { name: 'Agathe', expertise: 'CSRD', experience: 'Thermador, Biomérieux' },
+  },
+  {
+    name: 'Julie',
+    role: 'Marketing',
+    photo: `${base}images/team/julie.jpg`,
+    experience: 'Golocal, Goodness&Co, Danone'
+  },
+  {
+    name: 'Gabriel',
+    role: 'Circularité, stratégie',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Talan, Roland Berger'
+  },
+  {
+    name: 'Audrey',
+    role: 'Gouvernance, coaching',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Evaneos, Lapeyre, Kiloutou'
+  },
+  {
+    name: 'Caroline',
+    role: 'Sensibilisation, stratégie 🇧🇪',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'MySezame, Alterna, Mars'
+  },
+  {
+    name: 'Mylène',
+    role: 'Communautés, formation',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Haatch, Ecolearn, Danone'
+  },
+  {
+    name: 'Elodie',
+    role: 'ESG, finance durable',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Better Way, I&P'
+  },
+  {
+    name: 'Sébastien',
+    role: 'R&D, supply chain',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Renault'
+  },
+  {
+    name: 'Agathe',
+    role: 'CSRD',
+    photo: `${base}placeholders/portrait.svg`,
+    experience: 'Thermador, Biomérieux'
+  },
 ];
 ---
 
@@ -74,49 +112,57 @@ const network = [
   </div>
 </div>
 
-<!-- TIER 2 : Partenaires clés avec photo -->
+<!-- TIER 2 : Partenaires — tous au même niveau, photos plus petites -->
 <div class="mt-12">
-  <h3 class="text-lg font-semibold text-marine-800 mb-6 reveal">Partenaires clés</h3>
-  <div class="grid grid-cols-1 gap-6 sm:grid-cols-3">
+  <h3 class="text-lg font-semibold text-marine-800 mb-6 reveal">Partenaires</h3>
+  <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
     {partners.map((member, index) => (
-      <article class="reveal rounded-2xl border border-gris-200 bg-white overflow-hidden shadow-card transition-shadow hover:shadow-soft" style={`--delay:${index * 90}ms`}>
-        <div class="aspect-square">
-          <img
-            src={member.photo}
-            alt={`Portrait de ${member.name}`}
-            width="800"
-            height="800"
-            loading="lazy"
-            decoding="async"
-            class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-          />
+      <article class="reveal rounded-2xl border border-gris-200 bg-white overflow-hidden shadow-card transition-shadow hover:shadow-soft" style={`--delay:${index * 70}ms`}>
+        <div class="aspect-[4/3]">
+          {member.photo.includes('placeholders') ? (
+            <div class="h-full w-full bg-gris-100 flex items-center justify-center">
+              <div class="w-14 h-14 rounded-full bg-marine-800 flex items-center justify-center text-white text-xl font-semibold">
+                {member.name.charAt(0)}
+              </div>
+            </div>
+          ) : (
+            <img
+              src={member.photo}
+              alt={`Portrait de ${member.name}`}
+              width="400"
+              height="300"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+            />
+          )}
         </div>
-        <div class="p-5 text-center">
-          <h3 class="text-lg font-semibold text-marine-800">{member.name}</h3>
-          <p class="text-sm font-medium text-vert-600 mt-0.5">{member.role}</p>
+        <div class="p-4 text-center">
+          <h3 class="text-base font-semibold text-marine-800">{member.name}</h3>
+          <p class="text-xs font-medium text-vert-600 mt-0.5">{member.role}</p>
           <p class="text-xs text-marine-800/50 mt-1 italic">{member.experience}</p>
         </div>
       </article>
     ))}
+    <div class="reveal rounded-2xl border-2 border-dashed border-vert-400/30 flex items-center justify-center p-6" style="--delay:400ms">
+      <p class="text-xs text-vert-500 text-center font-medium">+ d'autres experts<br />selon vos besoins</p>
+    </div>
   </div>
 </div>
 
-<!-- TIER 3 : Réseau étendu -->
-<div class="mt-12">
-  <h3 class="text-lg font-semibold text-marine-800 mb-2 reveal">Le réseau étendu</h3>
-  <p class="text-sm text-marine-800/60 mb-6 reveal" style="--delay:40ms">Selon les missions, Komizo mobilise des partenaires spécialisés issus de son réseau de confiance.</p>
-  <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
-    {network.map((membre, i) => (
-      <div class="reveal rounded-xl bg-gris-100 p-4 text-center transition-colors hover:bg-vert-100" style={`--delay:${i * 50}ms`}>
-        <div class="mx-auto w-10 h-10 rounded-full bg-marine-800 flex items-center justify-center text-white text-sm font-semibold mb-2">
-          {membre.name.charAt(0)}
-        </div>
-        <p class="text-sm font-semibold text-marine-800">{membre.name}</p>
-        <p class="text-xs text-marine-800/60 mt-0.5">{membre.expertise}</p>
-      </div>
-    ))}
-    <div class="reveal rounded-xl border-2 border-dashed border-vert-400/30 p-4 flex items-center justify-center" style="--delay:400ms">
-      <p class="text-xs text-vert-500 text-center font-medium">+ d'autres experts selon vos besoins</p>
-    </div>
+<!-- Références entreprises -->
+<div class="mt-10 reveal">
+  <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-3">Entreprises de référence</p>
+  <div class="flex flex-wrap items-center gap-4">
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Siparex</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Meridiam</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Evolem</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Destia</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">EPSA</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Schneider Electric</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">KPMG</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Danone</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Renault</span>
+    <span class="text-xs text-marine-800/60 bg-gris-100 rounded-full px-3 py-1">Roland Berger</span>
   </div>
 </div>

@@ -58,22 +58,15 @@ const references = [
 ];
 
 const engagements = [
-  { icon: 'chart', text: 'Mesurer l\'impact de nos accompagnements' },
-  { icon: 'heart', text: 'Prendre soin de nous-mêmes pour prendre soin des autres' },
-  { icon: 'light', text: 'Encapaciter nos clients' },
-  { icon: 'leaf', text: 'Contribuer à l\'écosystème via des coopérations et événements d\'intelligence collective' },
-  { icon: 'gift', text: 'Reverser 2% du CA à des associations' },
-  { icon: 'rocket', text: 'Réinvestir 20% du résultat net dans des startups à impact' },
+  'Mesurer la progression de chaque client·e — avant, pendant, après — et publier les résultats dans notre rapport de mission annuel',
+  'Accompagner chaque client·e pour que l\'impact soit à l\'ordre du jour du board et des équipes, pas seulement dans un rapport',
+  'Faire monter en compétences nos client·es sur les sujets clés — notre objectif n\'est pas d\'être indispensables, mais de les rendre autonomes',
+  'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité',
+  'Zéro vol en Europe pour nos déplacements',
+  'Reverser 2 % de notre CA à des associations — 12 projets soutenus depuis 2022 pour 29 300 € de dons',
+  'Réinvestir 20 % de notre résultat net dans des startups à impact — 4 entreprises accompagnées à ce jour (20 025 € investis, 1 sortie)',
+  'Organiser au moins un événement collectif par an pour essaimer au-delà de nos missions',
 ];
-
-const engagementIcons: Record<string, string> = {
-  chart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l4-4 4 4 4-8 4 4" />',
-  heart: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21C12 21 3 13.5 3 8.5 3 5.42 5.42 3 8.5 3c1.74 0 3.41.81 4.5 2.09A5.99 5.99 0 0117.5 3C20.58 3 23 5.42 23 8.5 23 13.5 12 21 12 21z" />' ,
-  light: '<circle cx="12" cy="9" r="5" stroke-width="2" fill="none"/><path stroke-linecap="round" stroke-width="2" d="M10 17h4M11 20h2M12 14v3" />',
-  leaf: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22c0 0-8-4-8-12C4 6 8 2 12 2s8 4 8 8c0 8-8 12-8 12z" /><path stroke-linecap="round" stroke-width="2" d="M12 22V8M8 14l4-4 4 4" />',
-  gift: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z" />',
-  rocket: '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15l-3 3m3-3l3 3m-3-3V2m0 0C8 2 4 6 4 10m8-8c4 0 8 4 8 8M7 21h10" />',
-};
 ---
 
 <BaseLayout>
@@ -94,13 +87,25 @@ const engagementIcons: Record<string, string> = {
             Des PME solides<br />dans un monde instable
           </h1>
           <p class="mt-8 max-w-2xl text-lg sm:text-xl text-white/75 leading-relaxed">
-            Nous accompagnons dirigeants et investisseurs sur le long cours — pour que
-            croissance rapide et transformation durable ne soient pas des injonctions
-            contradictoires, mais les deux faces d'un même projet.
+            Nous accompagnons les équipes dirigeantes et d'investissement sur le long cours — pour réconcilier performance financière, transformation durable et ancrage dans le vivant.
           </p>
           <div class="mt-12 flex flex-wrap gap-4">
             <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
             <a href="#collectif" class="btn btn-secondary border-white/30 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
+          </div>
+          <!-- Logos de confiance -->
+          <div class="mt-14">
+            <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Ils nous font confiance</p>
+            <div class="flex flex-wrap items-center gap-6">
+              <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/inco-ventures.png`} alt="INCO Ventures" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/evolem.svg`} alt="Evolem" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/winncare.svg`} alt="Winncare" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/destia.svg`} alt="Destia" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/epsa.svg`} alt="EPSA" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+              <img src={`${base}images/logos/clients/mutualite-francaise.svg`} alt="Mutualité Française" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
@@ -128,41 +133,71 @@ const engagementIcons: Record<string, string> = {
             Komizo signifie « prendre soin » en grec ancien.
           </p>
           <div class="flex flex-wrap gap-2 mt-2">
-            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Multidisciplinarité</span>
-            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Agilité</span>
-            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Flexibilité</span>
-            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Pragmatisme</span>
-            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Proximité</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Écoute active</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Non dogmatique</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Apporteurs de sens</span>
+            <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Bousculeurs bienveillants</span>
           </div>
-          <p class="text-sm text-marine-800/70 mt-3">
-            L'avantage par rapport aux cabinets classiques est le niveau de séniorité et la continuité
-            de nos accompagnements sur la durée, avec un interlocuteur dédié.
-          </p>
-          <a href="#contact" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500">
-            Découvrir notre rapport de mission 2024 →
-          </a>
+
         </div>
 
         <div class="reveal" style="--delay:120ms">
           <div class="rounded-2xl bg-vert-100 p-8">
             <h3 class="text-xl font-semibold text-marine-800 mb-4">Ce qui nous distingue</h3>
             <p class="text-marine-800/70">
-              Nous travaillons en moyenne une à deux journées par semaine pour nos clients, sur
-              des missions d'accompagnement s'étalant souvent sur plusieurs années, à la frontière
-              de la finance et de l'opérationnel, avec un modèle de collectif de freelances spécialisés.
+              Contrairement aux cabinets classiques, nous intervenons généralement en immersion — une à deux journées par semaine, sur plusieurs années, à la frontière de la finance et de l'opérationnel — avec un interlocuteur senior dédié, appuyé par un collectif de freelances spécialisés.
             </p>
           </div>
 
           <div class="mt-6 rounded-2xl border border-gris-200 p-8">
             <h3 class="text-xl font-semibold text-marine-800 mb-4">Nos engagements</h3>
             <ul class="space-y-3">
-              {engagements.map(e => (
+              {engagements.map(text => (
                 <li class="flex items-start gap-3 text-sm text-marine-800/70">
-                  <svg class="w-5 h-5 flex-shrink-0 text-vert-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true" set:html={engagementIcons[e.icon]} />
-                  <span>{e.text}</span>
+                  <svg class="w-5 h-5 flex-shrink-0 text-vert-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{text}</span>
                 </li>
               ))}
             </ul>
+
+            <!-- Logos associations soutenues -->
+            <div class="mt-6">
+              <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-3">Associations soutenues</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-10 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-10 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/h-up.png`} alt="H'up" class="h-10 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/ville-a-velo.svg`} alt="La Ville à Vélo" class="h-10 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-10 w-auto" loading="lazy" />
+              </div>
+              <p class="text-xs text-marine-800/40 mt-2 italic">12 projets soutenus depuis 2022</p>
+            </div>
+
+            <!-- Logos startups à impact -->
+            <div class="mt-5">
+              <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-3">Startups à impact accompagnées</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                  <span class="text-xs text-marine-800/40">Logo 1</span>
+                </div>
+                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                  <span class="text-xs text-marine-800/40">Logo 2</span>
+                </div>
+                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                  <span class="text-xs text-marine-800/40">Logo 3</span>
+                </div>
+                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                  <span class="text-xs text-marine-800/40">Logo 4</span>
+                </div>
+              </div>
+              <p class="text-xs text-marine-800/40 mt-2 italic">4 entreprises accompagnées à ce jour</p>
+            </div>
+
+            <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-6 text-sm">
+              Découvrir notre rapport de mission 2024 →
+            </a>
           </div>
         </div>
       </div>
@@ -182,7 +217,7 @@ const engagementIcons: Record<string, string> = {
           <h3 class="text-2xl font-semibold text-marine-800">Transformation durable et performance</h3>
           <p class="mt-2 text-sm font-medium text-vert-600">Pour les dirigeants de PME-ETI</p>
           <p class="mt-4 text-marine-800/70">
-            Dirigeant de PME ou ETI en phase de transformation, croissance ou transmission.
+            Dirigeants de PME ou ETI en phase de transformation, croissance ou transmission.
           </p>
 
           <div class="mt-6 space-y-4">
@@ -192,11 +227,9 @@ const engagementIcons: Record<string, string> = {
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Chaîne de valeur & matrices de (double) matérialité</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Raison d'être et engagements stratégiques long terme</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Construction de feuilles de route RSE opérationnelles</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée, société à mission, Ecovadis, B Corp</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>CSRD</li>
+                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée, société à mission, Ecovadis, B Corp, CSRD</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Résilience du modèle d'affaires / analyse de prospective</li>
                 <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Lien et alignement avec les partenaires financiers (critères ESG, SLL, management package)</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Diagnostic économie circulaire</li>
               </ul>
             </div>
             <div>
@@ -247,6 +280,7 @@ const engagementIcons: Record<string, string> = {
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</li>
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Coordination avec prestataires externes</li>
                 <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Suivi des missions et transmission des sujets</li>
+                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Participation à des comités ESG / Impact / d'investissement</li>
               </ul>
             </div>
           </div>
@@ -272,7 +306,7 @@ const engagementIcons: Record<string, string> = {
 
       <!-- Rejoindre le collectif -->
       <div id="collectif" class="mt-16 rounded-2xl bg-marine-800 p-8 text-white reveal">
-        <h3 class="text-xl font-semibold mb-3">Pourquoi rejoindre le collectif ?</h3>
+        <h3 class="text-xl font-semibold text-white mb-3">Pourquoi rejoindre le collectif ?</h3>
         <p class="text-white/80 mb-4">
           Une alternative au cabinet classique et au freelance isolé.
         </p>
@@ -300,39 +334,53 @@ const engagementIcons: Record<string, string> = {
 
     <!-- RÉFÉRENCES -->
     <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="muted">
-      <div id="refs-container" class="space-y-8">
-        {references.map((ref, i) => (
-          <article class:list={["card reveal p-8", i >= 2 && "refs-extra hidden"]} style={`--delay:${i * 80}ms`}>
-            <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8">
-              <div>
-                <div class="inline-flex items-center gap-2 mb-3">
-                  <span class="inline-block w-2 h-2 rounded-full bg-vert-400"></span>
-                  <span class="text-sm font-semibold text-vert-600">{ref.sector}</span>
-                </div>
-                <p class="text-sm text-marine-800/60">{ref.detail}</p>
-                <p class="mt-3 text-sm font-medium text-marine-800">{ref.enjeu}</p>
-                <p class="mt-2 text-sm text-marine-800/70">{ref.intervention}</p>
-                <div class="mt-4 inline-flex items-center gap-2 rounded-lg bg-vert-100 px-3 py-2">
-                  <svg class="w-4 h-4 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span class="text-sm font-medium text-vert-600">{ref.resultat}</span>
-                </div>
-              </div>
-              <div class="rounded-xl bg-gris-100 p-6 flex flex-col justify-center">
-                <blockquote class="text-sm sm:text-base text-marine-800/80 italic leading-relaxed">
-                  "{ref.verbatim}"
-                </blockquote>
-                <p class="mt-4 text-sm font-semibold text-marine-800">— {ref.auteur}</p>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div class="mt-8 text-center">
-        <button id="refs-toggle" type="button" class="btn btn-secondary text-sm" aria-expanded="false">
-          Voir toutes les références
+      <div class="relative">
+        <!-- Carousel Navigation Arrows -->
+        <button id="refs-prev" type="button" class="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence précédente">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
         </button>
+        <button id="refs-next" type="button" class="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence suivante">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        <div id="refs-carousel" class="overflow-hidden">
+          <div id="refs-track" class="transition-transform duration-500 ease-in-out">
+            {references.map((ref, i) => (
+              <article class="card p-8 refs-slide" data-index={i} style={i > 0 ? 'display:none' : ''}>
+                <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8">
+                  <div>
+                    <div class="inline-flex items-center gap-2 mb-3">
+                      <span class="inline-block w-2 h-2 rounded-full bg-vert-400"></span>
+                      <span class="text-sm font-semibold text-vert-600">{ref.sector}</span>
+                    </div>
+                    <p class="text-sm text-marine-800/60">{ref.detail}</p>
+                    <p class="mt-3 text-sm font-medium text-marine-800">{ref.enjeu}</p>
+                    <p class="mt-2 text-sm text-marine-800/70">{ref.intervention}</p>
+                    <div class="mt-4 inline-flex items-center gap-2 rounded-lg bg-vert-100 px-3 py-2">
+                      <svg class="w-4 h-4 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="text-sm font-medium text-vert-600">{ref.resultat}</span>
+                    </div>
+                  </div>
+                  <div class="rounded-xl bg-gris-100 p-6 flex flex-col justify-center">
+                    <blockquote class="text-sm sm:text-base text-marine-800/80 italic leading-relaxed">
+                      "{ref.verbatim}"
+                    </blockquote>
+                    <p class="mt-4 text-sm font-semibold text-marine-800">— {ref.auteur}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <!-- Dots indicator -->
+        <div class="flex justify-center gap-2 mt-6">
+          {references.map((_, i) => (
+            <button type="button" class:list={["refs-dot w-2.5 h-2.5 rounded-full transition-colors", i === 0 ? "bg-vert-400" : "bg-gris-300"]} data-index={i} aria-label={`Référence ${i + 1}`}></button>
+          ))}
+        </div>
       </div>
     </Section>
 
