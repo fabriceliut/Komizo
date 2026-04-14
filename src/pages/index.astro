@@ -58,14 +58,14 @@ const references = [
 ];
 
 const engagements = [
-  { title: 'Mesure d\'impact', detail: 'Progression mesurée avant, pendant, après — résultats publiés dans notre rapport de mission annuel', icon: 'chart' },
-  { title: 'Impact au board', detail: 'À l\'ordre du jour du board et des équipes, pas seulement dans un rapport', icon: 'target' },
-  { title: 'Autonomie client', detail: 'Monter en compétences nos clients — notre objectif : les rendre autonomes', icon: 'users' },
-  { title: 'Équilibre d\'équipe', detail: 'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité', icon: 'heart' },
-  { title: 'Zéro vol en Europe', detail: 'Pour tous nos déplacements professionnels', icon: 'plane' },
-  { title: '2 % du CA reversé', detail: '12 projets soutenus depuis 2022 pour 29 300 € de dons', icon: 'gift' },
-  { title: '20 % du résultat net', detail: 'Réinvesti dans des startups à impact — 4 entreprises, 20 025 € investis', icon: 'rocket' },
-  { title: '1 événement / an', detail: 'Pour essaimer au-delà de nos missions', icon: 'calendar' },
+  { title: 'Mesure d\'impact', detail: 'Progression mesurée avant, pendant, après — résultats publiés dans notre rapport de mission annuel' },
+  { title: 'Impact au board', detail: 'À l\'ordre du jour du board et des équipes, pas seulement dans un rapport' },
+  { title: 'Autonomie client', detail: 'Monter en compétences nos clients — notre objectif : les rendre autonomes' },
+  { title: 'Équilibre d\'équipe', detail: 'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité' },
+  { title: 'Zéro vol en Europe', detail: 'Pour tous nos déplacements professionnels' },
+  { title: '2 % du CA reversé', detail: '12 projets soutenus depuis 2022', id: 'asso' },
+  { title: '20 % du résultat net', detail: 'Réinvesti dans des startups à impact', id: 'startup' },
+  { title: '1 événement / an', detail: 'Pour essaimer au-delà de nos missions' },
 ];
 ---
 
@@ -87,7 +87,7 @@ const engagements = [
             Des PME solides<br />dans un monde instable
           </h1>
           <p class="mt-8 max-w-2xl text-lg sm:text-xl text-white/75 leading-relaxed">
-            Nous accompagnons les équipes dirigeantes et d'investissement sur le long cours — pour réconcilier performance financière, transformation durable et ancrage dans le vivant.
+            Nous accompagnons PME-ETI et investisseurs sur le temps long pour renforcer durablement leur performance en intégrant l'impact au cœur du modèle d'affaires.
           </p>
           <div class="mt-12 flex flex-wrap gap-4">
             <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
@@ -97,19 +97,54 @@ const engagements = [
       </div>
     </section>
 
-    <!-- BANDE LOGOS CONFIANCE -->
-    <div class="bg-white border-b border-gris-200">
-      <div class="mx-auto w-full max-w-6xl px-6 lg:px-10 py-8">
+    <!-- BANDE LOGOS CONFIANCE — marquee infini -->
+    <div class="bg-white border-b border-gris-200 overflow-hidden">
+      <div class="py-8">
         <p class="text-[11px] font-semibold uppercase tracking-widest text-gris-400 text-center mb-6">Ils nous font confiance</p>
-        <div class="grid grid-cols-4 sm:grid-cols-8 gap-6 sm:gap-8 items-center justify-items-center">
-          <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/inco-ventures.png`} alt="INCO Ventures" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/evolem.svg`} alt="Evolem" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/winncare.svg`} alt="Winncare" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/destia.svg`} alt="Destia" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/epsa.svg`} alt="EPSA" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
-          <img src={`${base}images/logos/clients/mutualite-francaise.svg`} alt="Mutualité Française" class="h-8 max-w-[100px] w-full object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+        <div class="logos-marquee">
+          <div class="logos-track">
+            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" />
+            <img src={`${base}images/logos/clients/xange.png`} alt="XAnge" loading="lazy" />
+            <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" loading="lazy" />
+            <img src={`${base}images/logos/clients/evolem.png`} alt="Evolem" loading="lazy" />
+            <img src={`${base}images/logos/clients/destia.png`} alt="Destia" loading="lazy" />
+            <img src={`${base}images/logos/clients/piercan.jpg`} alt="Piercan" loading="lazy" />
+            <img src={`${base}images/logos/clients/welcoop.png`} alt="Welcoop" loading="lazy" />
+            <img src={`${base}images/logos/clients/ratp-dev.jpg`} alt="RATP Dev" loading="lazy" />
+            <img src={`${base}images/logos/clients/mutualite-francaise.png`} alt="Mutualité Française" loading="lazy" />
+            <img src={`${base}images/logos/clients/bpi.png`} alt="Bpifrance" loading="lazy" />
+            <img src={`${base}images/logos/clients/anru.png`} alt="ANRU" loading="lazy" />
+            <img src={`${base}images/logos/clients/altema.png`} alt="Altema" loading="lazy" />
+            <img src={`${base}images/logos/clients/sodikart.png`} alt="Sodikart" loading="lazy" />
+            <img src={`${base}images/logos/clients/odontolia.png`} alt="Odontolia" loading="lazy" />
+            <img src={`${base}images/logos/clients/lbm.png`} alt="LBM" loading="lazy" />
+            <img src={`${base}images/logos/clients/lauralu.png`} alt="Lauralu" loading="lazy" />
+            <img src={`${base}images/logos/clients/sedia.png`} alt="Sedia" loading="lazy" />
+            <img src={`${base}images/logos/clients/golocal.png`} alt="Golocal" loading="lazy" />
+            <img src={`${base}images/logos/clients/lri.jpg`} alt="LRI" loading="lazy" />
+            <img src={`${base}images/logos/clients/yci-sante.jpg`} alt="Yci Santé" loading="lazy" />
+            <!-- Duplicate set for seamless loop -->
+            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" />
+            <img src={`${base}images/logos/clients/xange.png`} alt="XAnge" loading="lazy" />
+            <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" loading="lazy" />
+            <img src={`${base}images/logos/clients/evolem.png`} alt="Evolem" loading="lazy" />
+            <img src={`${base}images/logos/clients/destia.png`} alt="Destia" loading="lazy" />
+            <img src={`${base}images/logos/clients/piercan.jpg`} alt="Piercan" loading="lazy" />
+            <img src={`${base}images/logos/clients/welcoop.png`} alt="Welcoop" loading="lazy" />
+            <img src={`${base}images/logos/clients/ratp-dev.jpg`} alt="RATP Dev" loading="lazy" />
+            <img src={`${base}images/logos/clients/mutualite-francaise.png`} alt="Mutualité Française" loading="lazy" />
+            <img src={`${base}images/logos/clients/bpi.png`} alt="Bpifrance" loading="lazy" />
+            <img src={`${base}images/logos/clients/anru.png`} alt="ANRU" loading="lazy" />
+            <img src={`${base}images/logos/clients/altema.png`} alt="Altema" loading="lazy" />
+            <img src={`${base}images/logos/clients/sodikart.png`} alt="Sodikart" loading="lazy" />
+            <img src={`${base}images/logos/clients/odontolia.png`} alt="Odontolia" loading="lazy" />
+            <img src={`${base}images/logos/clients/lbm.png`} alt="LBM" loading="lazy" />
+            <img src={`${base}images/logos/clients/lauralu.png`} alt="Lauralu" loading="lazy" />
+            <img src={`${base}images/logos/clients/sedia.png`} alt="Sedia" loading="lazy" />
+            <img src={`${base}images/logos/clients/golocal.png`} alt="Golocal" loading="lazy" />
+            <img src={`${base}images/logos/clients/lri.jpg`} alt="LRI" loading="lazy" />
+            <img src={`${base}images/logos/clients/yci-sante.jpg`} alt="Yci Santé" loading="lazy" />
+          </div>
         </div>
       </div>
     </div>
@@ -159,8 +194,8 @@ const engagements = [
         <div class="rounded-2xl border border-gris-200 p-6 sm:p-8">
           <h3 class="text-xl font-semibold text-marine-800 mb-6">Nos engagements</h3>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {engagements.map(({ title, detail }) => (
-              <div class="flex items-start gap-3 rounded-xl bg-gris-100/60 p-4">
+            {engagements.map(({ title, detail, id }) => (
+              <div class:list={["flex items-start gap-3 rounded-xl p-4", id === 'asso' || id === 'startup' ? 'bg-vert-100/80 border border-vert-400/20' : 'bg-gris-100/60']} id={id ? `engagement-${id}` : undefined}>
                 <svg class="w-5 h-5 flex-shrink-0 text-vert-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
@@ -171,56 +206,68 @@ const engagements = [
               </div>
             ))}
           </div>
+
+          <!-- Associations & Startups avec flèches visuelles -->
+          <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- 2% → Associations -->
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">2 % du CA → Associations soutenues</p>
+              </div>
+              <div class="rounded-xl bg-gris-100/60 p-4">
+                <div class="flex flex-wrap items-center gap-4">
+                  <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/h-up.jpg`} alt="H'up" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/ville-a-velo.png`} alt="La Ville à Vélo" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/clubhouse.png`} alt="Clubhouse" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/mountain-wilderness.png`} alt="Mountain Wilderness" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/siel-bleu.png`} alt="Siel Bleu" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/telemaque.png`} alt="Télémaque" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/amasco.png`} alt="Amasco" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/foyer-ndsa.png`} alt="Foyer NDSA" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/associations/seuil.jpg`} alt="Seuil" class="h-8 w-auto" loading="lazy" />
+                </div>
+                <p class="text-xs text-marine-800/40 mt-3 italic">12 projets soutenus depuis 2022 — 29 300 € de dons</p>
+              </div>
+            </div>
+
+            <!-- 20% → Startups -->
+            <div class="relative">
+              <div class="flex items-center gap-2 mb-3">
+                <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+                <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">20 % du résultat net → Startups à impact</p>
+              </div>
+              <div class="rounded-xl bg-gris-100/60 p-4">
+                <div class="flex flex-wrap items-center gap-4">
+                  <img src={`${base}images/logos/startups/good-steps.png`} alt="Good Steps" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/startups/jobs-that-make-sense.png`} alt="Jobs that Make Sense" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/startups/oe.png`} alt="Oé" class="h-8 w-auto" loading="lazy" />
+                  <img src={`${base}images/logos/startups/qvrsv.png`} alt="QVRSV" class="h-8 w-auto" loading="lazy" />
+                </div>
+                <p class="text-xs text-marine-800/40 mt-3 italic">4 entreprises accompagnées — 20 025 € investis</p>
+              </div>
+            </div>
+          </div>
+
           <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-6 text-sm">
             Découvrir notre rapport de mission 2024 →
           </a>
         </div>
       </div>
-
-      <!-- ASSOCIATIONS & STARTUPS — section pleine largeur -->
-      <div class="mt-14 reveal">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Associations soutenues -->
-          <div class="rounded-2xl border border-gris-200 bg-white p-6 sm:p-8">
-            <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-5">Associations soutenues</p>
-            <div class="flex flex-wrap items-center gap-5">
-              <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-10 w-auto" loading="lazy" />
-              <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-10 w-auto" loading="lazy" />
-              <img src={`${base}images/logos/associations/h-up.png`} alt="H'up" class="h-10 w-auto" loading="lazy" />
-              <img src={`${base}images/logos/associations/ville-a-velo.svg`} alt="La Ville à Vélo" class="h-10 w-auto" loading="lazy" />
-              <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-10 w-auto" loading="lazy" />
-            </div>
-            <p class="text-xs text-marine-800/40 mt-4 italic">12 projets soutenus depuis 2022</p>
-          </div>
-
-          <!-- Startups à impact -->
-          <div class="rounded-2xl border border-gris-200 bg-white p-6 sm:p-8">
-            <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-5">Startups à impact accompagnées</p>
-            <div class="flex flex-wrap items-center gap-4">
-              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                <span class="text-xs text-marine-800/40">Logo 1</span>
-              </div>
-              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                <span class="text-xs text-marine-800/40">Logo 2</span>
-              </div>
-              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                <span class="text-xs text-marine-800/40">Logo 3</span>
-              </div>
-              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                <span class="text-xs text-marine-800/40">Logo 4</span>
-              </div>
-            </div>
-            <p class="text-xs text-marine-800/40 mt-4 italic">4 entreprises accompagnées à ce jour</p>
-          </div>
-        </div>
-      </div>
     </Section>
 
     <!-- OFFRES -->
-    <Section id="offres" title="Nos offres" subtitle="Deux expertises complémentaires au service de la transformation durable" tone="muted">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 items-stretch">
+    <Section id="offres" title="Nos offres" subtitle="Trois expertises complémentaires au service de la transformation durable" tone="muted">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 items-stretch">
 
-        <!-- Offre Dirigeants -->
+        <!-- Offre 1 : Dirigeants PME-ETI -->
         <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-vert-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -228,78 +275,72 @@ const engagements = [
             </svg>
           </div>
           <h3 class="text-2xl font-semibold text-marine-800">Transformation durable et performance</h3>
-          <p class="mt-2 text-sm font-medium text-vert-600">Pour les dirigeants de PME-ETI</p>
-          <p class="mt-4 text-marine-800/70">
-            Dirigeants de PME ou ETI en phase de transformation, croissance ou transmission.
-          </p>
+          <p class="mt-2 text-sm font-medium text-vert-600">Pour les dirigeants de PME-ETI en phase de transformation, croissance ou transmission</p>
 
-          <div class="mt-6 space-y-4">
-            <div>
-              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Structuration stratégique</h4>
-              <ul class="space-y-2 text-sm text-marine-800/70">
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Chaîne de valeur & matrices de (double) matérialité</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Raison d'être et engagements stratégiques long terme</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Construction de feuilles de route RSE opérationnelles</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée, société à mission, Ecovadis, B Corp, CSRD</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Résilience du modèle d'affaires / analyse de prospective</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Lien et alignement avec les partenaires financiers (critères ESG, SLL, management package)</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Mise en œuvre</h4>
-              <ul class="space-y-2 text-sm text-marine-800/70">
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Bilan carbone, stratégie de décarbonation</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Feuille de route RH, baromètre social, marque employeur</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Politique handicap</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Achats responsables / éthique des affaires</li>
-                <li class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Formation et sensibilisation des équipes</li>
-              </ul>
-            </div>
+          <div class="mt-5 space-y-2">
+            <p class="text-sm text-marine-800/70">Pour mieux piloter vos impacts, risques et opportunités dans un monde imprévisible.</p>
+            <p class="text-sm text-marine-800/70">Pour renforcer l'engagement des équipes, la marque employeur et les relations avec vos parties prenantes clés.</p>
+            <p class="text-sm text-marine-800/70">Pour sécuriser des contrats grands comptes, créer de nouvelles lignes produits/services et réduire les coûts.</p>
           </div>
+
+          <div class="mt-6 space-y-2 text-sm text-marine-800/70">
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Chaîne de valeur & matrices de (double) matérialité</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Résilience du modèle d'affaires / analyse de prospective</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Raison d'être et engagements stratégiques long terme</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Construction de feuilles de route RSE opérationnelles (RH, climat…)</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Évaluation Ecovadis, société à mission, B Corp</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Stratégie de communication, rapport de durabilité / impact</p>
+            <p class="flex items-start gap-2"><span class="text-vert-400 mt-0.5">•</span>Gouvernance adaptée et alignement avec les partenaires financiers (ESG, SLL, management package)</p>
+          </div>
+
+          <p class="mt-6 text-sm italic text-marine-800/50">La stratégie ne vaut rien sans exécution — c'est pourquoi nous restons à vos côtés jusqu'au terrain.</p>
 
           <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
             <p class="text-xs text-marine-800/50">Mission initiale de 6 à 12 mois • Min. 1 jour/semaine • Hybride présentiel/distanciel</p>
           </div>
         </article>
 
-        <!-- Offre Investisseurs -->
-        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:120ms">
+        <!-- Offre 2 : Investisseurs — Portfolio -->
+        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:100ms">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-corail-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
           <h3 class="text-2xl font-semibold text-marine-800">Accompagnement opérationnel ESG / Impact</h3>
-          <p class="mt-2 text-sm font-medium text-corail-600">Pour les investisseurs</p>
-          <p class="mt-4 text-marine-800/70">
-            Acteurs du capital-investissement : fonds PE, family offices, VC, infra.
-          </p>
+          <p class="mt-2 text-sm font-medium text-corail-600">Pour renforcer la performance des actifs et sécuriser les sorties</p>
 
-          <div class="mt-6 space-y-4">
-            <div>
-              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Notre rôle</h4>
-              <ul class="space-y-2 text-sm text-marine-800/70">
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Operating Partner ESG externalisé</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Accompagnement de la due diligence jusqu'à l'exit</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Élaboration de plans de création de valeur durable</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Due diligence ESG</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Assistance à la réalisation des chantiers jugés prioritaires</li>
-              </ul>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-marine-800 uppercase tracking-wide mb-2">Interventions spécifiques</h4>
-              <ul class="space-y-2 text-sm text-marine-800/70">
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>PMO pour des projets à impact natif</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Coordination avec prestataires externes</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Suivi des missions et transmission des sujets</li>
-                <li class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Participation à des comités ESG / Impact / d'investissement</li>
-              </ul>
-            </div>
+          <div class="mt-6 space-y-2 text-sm text-marine-800/70">
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Rôle d'Operating Partner ESG externalisé, du sourcing à l'exit</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Due diligence ESG / Impact, plans de création de valeur durable, définition et suivi d'objectifs ESG en lien avec la dette (SLL) et le management package</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Assistance à la réalisation des chantiers prioritaires — coordination prestataires, suivi, transmission</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Accès à la communauté Komizo — experts, startups, PME, investisseurs, mutuelles…</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Participation aux comités ESG / Impact / d'investissement</p>
           </div>
 
           <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
-            <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec la présence d'un OP ESG salarié</p>
+            <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec un OP ESG salarié</p>
+          </div>
+        </article>
+
+        <!-- Offre 3 : Investisseurs — Véhicules à impact -->
+        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:200ms">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-marine-800/10 mb-4">
+            <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-semibold text-marine-800">Création de véhicules à impact</h3>
+          <p class="mt-2 text-sm font-medium text-marine-800/60">Pour créer, structurer et faire grandir des véhicules à impact</p>
+
+          <div class="mt-6 space-y-2 text-sm text-marine-800/70">
+            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</p>
+            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>Structuration de la thèse d'impact et de la gouvernance</p>
+            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>PMO et chefferie de projet pour des projets à impact natif</p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
+            <p class="text-xs text-marine-800/50">Mission sur mesure • Durée variable selon le projet</p>
           </div>
         </article>
       </div>

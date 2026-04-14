@@ -70,7 +70,7 @@ const ogImage = `${base}images/logos/komizo-logo.png`;
     <script is:inline>
       // IntersectionObserver for reveal animations
       (function() {
-        const reveals = document.querySelectorAll('.reveal');
+        const reveals = document.querySelectorAll('.reveal, .stagger-children');
         if (!reveals.length) return;
 
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
