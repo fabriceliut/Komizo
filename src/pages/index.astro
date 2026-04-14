@@ -93,23 +93,26 @@ const engagements = [
             <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
             <a href="#collectif" class="btn btn-secondary border-white/30 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
           </div>
-          <!-- Logos de confiance -->
-          <div class="mt-14">
-            <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Ils nous font confiance</p>
-            <div class="flex flex-wrap items-center gap-6">
-              <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/inco-ventures.png`} alt="INCO Ventures" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/evolem.svg`} alt="Evolem" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/winncare.svg`} alt="Winncare" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/destia.svg`} alt="Destia" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/epsa.svg`} alt="EPSA" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-              <img src={`${base}images/logos/clients/mutualite-francaise.svg`} alt="Mutualité Française" class="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity" loading="lazy" />
-            </div>
-          </div>
         </div>
       </div>
     </section>
+
+    <!-- BANDE LOGOS CONFIANCE -->
+    <div class="bg-white border-b border-gris-200">
+      <div class="mx-auto w-full max-w-6xl px-6 lg:px-10 py-8">
+        <p class="text-[11px] font-semibold uppercase tracking-widest text-gris-400 text-center mb-6">Ils nous font confiance</p>
+        <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12">
+          <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/inco-ventures.png`} alt="INCO Ventures" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/evolem.svg`} alt="Evolem" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/winncare.svg`} alt="Winncare" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/destia.svg`} alt="Destia" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/epsa.svg`} alt="EPSA" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+          <img src={`${base}images/logos/clients/mutualite-francaise.svg`} alt="Mutualité Française" class="h-7 sm:h-8 w-auto grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300" loading="lazy" />
+        </div>
+      </div>
+    </div>
 
     <!-- À PROPOS -->
     <Section id="apropos" title="Qui sommes-nous" tone="default">
@@ -162,42 +165,47 @@ const engagements = [
               ))}
             </ul>
 
-            <!-- Logos associations soutenues -->
-            <div class="mt-6">
-              <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-3">Associations soutenues</p>
-              <div class="flex flex-wrap items-center gap-4">
-                <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-10 w-auto" loading="lazy" />
-                <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-10 w-auto" loading="lazy" />
-                <img src={`${base}images/logos/associations/h-up.png`} alt="H'up" class="h-10 w-auto" loading="lazy" />
-                <img src={`${base}images/logos/associations/ville-a-velo.svg`} alt="La Ville à Vélo" class="h-10 w-auto" loading="lazy" />
-                <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-10 w-auto" loading="lazy" />
-              </div>
-              <p class="text-xs text-marine-800/40 mt-2 italic">12 projets soutenus depuis 2022</p>
-            </div>
-
-            <!-- Logos startups à impact -->
-            <div class="mt-5">
-              <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-3">Startups à impact accompagnées</p>
-              <div class="flex flex-wrap items-center gap-4">
-                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                  <span class="text-xs text-marine-800/40">Logo 1</span>
-                </div>
-                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                  <span class="text-xs text-marine-800/40">Logo 2</span>
-                </div>
-                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                  <span class="text-xs text-marine-800/40">Logo 3</span>
-                </div>
-                <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
-                  <span class="text-xs text-marine-800/40">Logo 4</span>
-                </div>
-              </div>
-              <p class="text-xs text-marine-800/40 mt-2 italic">4 entreprises accompagnées à ce jour</p>
-            </div>
-
             <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-6 text-sm">
               Découvrir notre rapport de mission 2024 →
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASSOCIATIONS & STARTUPS — section pleine largeur -->
+      <div class="mt-14 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Associations soutenues -->
+          <div class="rounded-2xl border border-gris-200 bg-white p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-5">Associations soutenues</p>
+            <div class="flex flex-wrap items-center gap-5">
+              <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-10 w-auto" loading="lazy" />
+              <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-10 w-auto" loading="lazy" />
+              <img src={`${base}images/logos/associations/h-up.png`} alt="H'up" class="h-10 w-auto" loading="lazy" />
+              <img src={`${base}images/logos/associations/ville-a-velo.svg`} alt="La Ville à Vélo" class="h-10 w-auto" loading="lazy" />
+              <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-10 w-auto" loading="lazy" />
+            </div>
+            <p class="text-xs text-marine-800/40 mt-4 italic">12 projets soutenus depuis 2022</p>
+          </div>
+
+          <!-- Startups à impact -->
+          <div class="rounded-2xl border border-gris-200 bg-white p-6 sm:p-8">
+            <p class="text-xs font-semibold uppercase tracking-wide text-marine-800/50 mb-5">Startups à impact accompagnées</p>
+            <div class="flex flex-wrap items-center gap-4">
+              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                <span class="text-xs text-marine-800/40">Logo 1</span>
+              </div>
+              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                <span class="text-xs text-marine-800/40">Logo 2</span>
+              </div>
+              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                <span class="text-xs text-marine-800/40">Logo 3</span>
+              </div>
+              <div class="h-10 px-4 rounded-lg bg-gris-100 flex items-center justify-center">
+                <span class="text-xs text-marine-800/40">Logo 4</span>
+              </div>
+            </div>
+            <p class="text-xs text-marine-800/40 mt-4 italic">4 entreprises accompagnées à ce jour</p>
           </div>
         </div>
       </div>
