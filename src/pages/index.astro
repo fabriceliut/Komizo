@@ -58,14 +58,14 @@ const references = [
 ];
 
 const engagements = [
-  'Mesurer la progression de chaque client·e — avant, pendant, après — et publier les résultats dans notre rapport de mission annuel',
-  'Accompagner chaque client·e pour que l\'impact soit à l\'ordre du jour du board et des équipes, pas seulement dans un rapport',
-  'Faire monter en compétences nos client·es sur les sujets clés — notre objectif n\'est pas d\'être indispensables, mais de les rendre autonomes',
-  'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité',
-  'Zéro vol en Europe pour nos déplacements',
-  'Reverser 2 % de notre CA à des associations — 12 projets soutenus depuis 2022 pour 29 300 € de dons',
-  'Réinvestir 20 % de notre résultat net dans des startups à impact — 4 entreprises accompagnées à ce jour (20 025 € investis, 1 sortie)',
-  'Organiser au moins un événement collectif par an pour essaimer au-delà de nos missions',
+  { title: 'Mesure d\'impact', detail: 'Progression mesurée avant, pendant, après — résultats publiés dans notre rapport de mission annuel', icon: 'chart' },
+  { title: 'Impact au board', detail: 'À l\'ordre du jour du board et des équipes, pas seulement dans un rapport', icon: 'target' },
+  { title: 'Autonomie client', detail: 'Monter en compétences nos clients — notre objectif : les rendre autonomes', icon: 'users' },
+  { title: 'Équilibre d\'équipe', detail: 'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité', icon: 'heart' },
+  { title: 'Zéro vol en Europe', detail: 'Pour tous nos déplacements professionnels', icon: 'plane' },
+  { title: '2 % du CA reversé', detail: '12 projets soutenus depuis 2022 pour 29 300 € de dons', icon: 'gift' },
+  { title: '20 % du résultat net', detail: 'Réinvesti dans des startups à impact — 4 entreprises, 20 025 € investis', icon: 'rocket' },
+  { title: '1 événement / an', detail: 'Pour essaimer au-delà de nos missions', icon: 'calendar' },
 ];
 ---
 
@@ -152,20 +152,22 @@ const engagements = [
             </p>
           </div>
 
-          <div class="mt-6 rounded-2xl border border-gris-200 p-8">
-            <h3 class="text-xl font-semibold text-marine-800 mb-4">Nos engagements</h3>
-            <ul class="space-y-3">
-              {engagements.map(text => (
-                <li class="flex items-start gap-3 text-sm text-marine-800/70">
-                  <svg class="w-5 h-5 flex-shrink-0 text-vert-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <div class="mt-6 rounded-2xl border border-gris-200 p-6">
+            <h3 class="text-xl font-semibold text-marine-800 mb-5">Nos engagements</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {engagements.map(({ title, detail }) => (
+                <div class="flex items-start gap-3 rounded-xl bg-gris-100/60 p-4">
+                  <svg class="w-5 h-5 flex-shrink-0 text-vert-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span>{text}</span>
-                </li>
+                  <div>
+                    <p class="text-sm font-semibold text-marine-800 leading-snug">{title}</p>
+                    <p class="text-xs text-marine-800/55 mt-0.5 leading-relaxed">{detail}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
-
-            <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-6 text-sm">
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-5 text-sm">
               Découvrir notre rapport de mission 2024 →
             </a>
           </div>
