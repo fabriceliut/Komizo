@@ -42,6 +42,12 @@ h2::after {
   border-radius: 2px;
 }
 
+/* Suppress green underline on dark backgrounds */
+.bg-marine-800 h2::after,
+[data-tone="dark"] h2::after {
+  background: rgba(255, 255, 255, 0.25);
+}
+
 p,
 li {
   @apply text-marine-800/80 leading-relaxed;
@@ -97,11 +103,11 @@ a:hover {
   }
 
   .btn-primary:hover {
-    @apply bg-corail-500;
+    @apply bg-corail-500 scale-[1.04];
   }
 
   .btn-primary:active {
-    @apply bg-corail-500;
+    @apply bg-corail-500 scale-[0.97];
   }
 
   .btn-primary:disabled {
@@ -113,11 +119,11 @@ a:hover {
   }
 
   .btn-secondary:hover {
-    @apply border-vert-400 bg-vert-400 text-white;
+    @apply border-vert-400 bg-vert-400 text-white scale-[1.04];
   }
 
   .btn-secondary:active {
-    @apply border-vert-500 bg-vert-500;
+    @apply border-vert-500 bg-vert-500 scale-[0.97];
   }
 
   .btn-secondary:disabled {
@@ -167,7 +173,7 @@ a:hover {
   align-items: center;
   gap: 3rem;
   width: max-content;
-  animation: marquee 40s linear infinite;
+  animation: marquee 60s linear infinite;
 }
 
 .logos-track img {
@@ -179,6 +185,10 @@ a:hover {
   transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
+.logos-track img.logo-siparex {
+  height: 1.5rem;
+}
+
 .logos-track img:hover {
   filter: grayscale(0);
   opacity: 1;
@@ -186,7 +196,7 @@ a:hover {
 
 @keyframes marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-33.333%); }
 }
 
 /* Pause marquee on hover */
@@ -240,4 +250,42 @@ a:hover {
     opacity: 1;
     transform: none;
   }
+}
+
+/* Carousel slide fade transition */
+.refs-slide {
+  animation: slide-fade-in 400ms ease both;
+}
+
+@keyframes slide-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section dividers — subtle wave between sections */
+.section-divider {
+  position: relative;
+  height: 48px;
+  margin-top: -1px;
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 100%;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: inherit;
+}
+
+.section-divider--to-muted {
+  background: #f8fafb;
+}
+
+.section-divider--to-white {
+  background: #ffffff;
 }

@@ -22,7 +22,9 @@ const ogImage = `${base}images/logos/komizo-logo.png`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#033745" />
-    <link rel="icon" type="image/png" href={`${base}favicon.png`} />
+    <link rel="icon" type="image/x-icon" href={`${base}favicon.ico`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${base}favicon.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
     <title>{title}</title>
 
     <!-- Open Graph / LinkedIn -->
@@ -115,21 +117,34 @@ const ogImage = `${base}images/logos/komizo-logo.png`;
       // Back to top button
       (function() {
         const btn = document.getElementById('back-to-top');
-        if (!btn) return;
+        const progress = document.getElementById('scroll-progress');
 
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 600) {
-            btn.classList.remove('hidden');
-            btn.classList.add('flex');
-          } else {
-            btn.classList.add('hidden');
-            btn.classList.remove('flex');
+        function updateScroll() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+          if (progress) progress.style.width = pct + '%';
+
+          if (btn) {
+            if (scrollTop > 600) {
+              btn.classList.remove('hidden');
+              btn.classList.add('flex');
+            } else {
+              btn.classList.add('hidden');
+              btn.classList.remove('flex');
+            }
           }
-        }, { passive: true });
+        }
 
-        btn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+        window.addEventListener('scroll', updateScroll, { passive: true });
+        updateScroll();
+
+        if (btn) {
+          btn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
       })();
 
       // References carousel
@@ -145,11 +160,21 @@ const ogImage = `${base}images/logos/komizo-logo.png`;
 
         function showSlide(index) {
           slides.forEach((s, i) => {
-            s.style.display = i === index ? '' : 'none';
+            if (i === index) {
+              s.style.display = '';
+              s.style.animation = 'none';
+              s.offsetHeight; // trigger reflow
+              s.style.animation = '';
+            } else {
+              s.style.display = 'none';
+            }
           });
           dots.forEach((d, i) => {
             d.classList.toggle('bg-vert-400', i === index);
-            d.classList.toggle('bg-gris-300', i !== index);
+            d.classList.toggle('text-white', i === index);
+            d.classList.toggle('scale-110', i === index);
+            d.classList.toggle('bg-gris-200', i !== index);
+            d.classList.toggle('text-marine-800/60', i !== index);
           });
           prevBtn.disabled = index === 0;
           nextBtn.disabled = index === total - 1;

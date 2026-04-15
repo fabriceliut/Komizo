@@ -14,20 +14,28 @@
 
 ```
 src/
-  layouts/BaseLayout.astro      # Head, meta OG, JSON-LD, scripts globaux
-  pages/index.astro             # Page unique (hero, à propos, offres, équipe, refs, contact)
-  pages/404.astro               # Page 404 custom
+  layouts/BaseLayout.astro         # Head, meta OG, JSON-LD, scripts globaux
+  pages/
+    index.astro                    # Page principale (hero → contact, single page)
+    mentions-legales.astro         # Mentions légales
+    politique-de-confidentialite.astro  # Politique RGPD
+    404.astro                      # Page 404 custom
   components/
-    Header.astro                # Nav fixe + scroll spy + mobile hamburger
-    Section.astro               # Wrapper de section réutilisable (tones: default/muted/dark)
-    TeamGrid.astro              # 3 niveaux : fondateur, partenaires clés, réseau
-    ContactForm.astro           # Formulaire FormSubmit avec validation JS
-  styles/global.css             # Base Tailwind + composants custom (btn, card, input, reveal)
+    Header.astro                   # Nav fixe + scroll spy + mobile hamburger
+    Section.astro                  # Wrapper de section (tones: default/muted/dark)
+    TeamGrid.astro                 # Fondateur + 11 partenaires
+    ContactForm.astro              # Formulaire FormSubmit avec validation JS
+  styles/global.css                # Tailwind + composants (btn, card, reveal, marquee)
 public/
-  images/hero/hero-bg.jpg       # Image de fond hero
-  images/team/                  # Photos équipe (corentin, lauramay, aurelien, sirine)
-  images/logos/                 # Logo couleur + blanc + avatars
-  favicon.png, robots.txt
+  images/
+    hero/hero-bg.webp              # Image de fond hero (WebP)
+    team/*.webp                    # Photos équipe (WebP, max 800px)
+    team/comite-mission/*.webp     # Photos comité de mission
+    logos/                         # Logos clients, associations, startups (WebP/PNG/SVG)
+  favicon.ico, favicon.png         # Favicon multi-format
+  apple-touch-icon.png             # iOS icon 180×180
+  robots.txt
+ressources_v2_komizo/              # Briefs, sources logos, PV de réunion (historique)
 ```
 
 ## Lancer en local
@@ -47,20 +55,36 @@ Push sur `main` → GitHub Actions build & deploy automatique sur Pages.
 Utilise [FormSubmit.co](https://formsubmit.co) — les soumissions arrivent à `corentin@komizo-partners.com`.
 Au premier envoi, un email de confirmation est envoyé — cliquer dessus une fois pour activer.
 
-## Itération du 8 avril 2026
+## Itérations
 
-- Restauration de l'image hero (hero-bg.jpg) avec overlay gradient
-- Suppression des icônes lighthouse SVG sur les titres de section → accent bar vert
-- Remplacement des icônes engagement cassées par des SVG simples et lisibles
-- Suppression du doublon "Contact" dans la nav (CTA "Nous contacter" conservé)
-- Activation du formulaire de contact via FormSubmit.co
-- Audit de conformité brief : 85/100 sur le contenu, structure complète
+### 15 avril 2026
 
-### Reste à faire (prochaine itération)
+- Restructuration complète des sections (ordre : hero → logos → à propos → équipe → offres → CTA → références → engagements → comité de mission → contact)
+- Renommage "collectif" → "partenaires" partout
+- Ajout section comité de mission (4 membres avec photos et bios)
+- Ajout section engagements (6 engagements + logos associations/startups)
+- Références enrichies avec vrais noms et verbatims
+- Offres empilées pleine largeur avec bordure colorée
+- Carousel références : fade-in animation + indicateurs numérotés
+- Barre de progression scroll
+- Micro-interactions boutons (scale hover/active)
+- Fix `h2::after` sur fonds sombres
+- Pages mentions légales et politique de confidentialité (RGPD)
+- Optimisation images : ~17 MB → 1.7 MB (Pillow resize + WebP)
+- Favicon multi-format (ico/png/apple-touch-icon)
+- Responsive amélioré (mobile 320px → desktop 15")
+- SASU → SAS, suppression lien rapport de mission, mise à jour nav
+- Score UX/UI : 92/100
 
-- [ ] Remplacer hero-bg.jpg par une vraie photo (équipe / bureau)
-- [ ] Ajouter le PDF du rapport de mission 2024 (lien actuellement placeholder)
-- [ ] Pages Mentions légales / Politique de confidentialité
+### 8 avril 2026
+
+- Restauration image hero avec overlay gradient
+- Accent bar vert sur titres de section
+- Activation formulaire FormSubmit.co
+- Audit conformité brief : 85/100
+
+### Reste à faire
+
 - [ ] Image OG optimisée 1200×630 pour partage LinkedIn
-- [ ] Analytics léger (Plausible ou Matomo)
+- [ ] Analytics léger (Plausible ou Umami)
 - [ ] Domaine komizo-partners.com → redirection vers GitHub Pages

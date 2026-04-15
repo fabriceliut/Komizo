@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const base = import.meta.env.BASE_URL;
+const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
+---
+
+<BaseLayout title="Mentions légales | Komizo Partners">
+  <Header />
+  <main class="pt-24 pb-16">
+    <div class="mx-auto w-full max-w-3xl px-6 lg:px-10">
+      <h1 class="text-3xl font-bold text-marine-800 mb-10">Mentions légales</h1>
+
+      <div class="space-y-8 text-sm text-marine-800/80 leading-relaxed">
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Éditeur du site</h2>
+          <p>
+            <strong>Komizo Partners</strong><br />
+            Société par actions simplifiée (SAS) à mission<br />
+            Siège social : Lyon, France<br />
+            Email : <a href="mailto:corentin@komizo-partners.com" class="text-vert-600 hover:text-vert-400">corentin@komizo-partners.com</a><br />
+            Directeur de la publication : Corentin Decouty
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Hébergement</h2>
+          <p>
+            Ce site est hébergé par <strong>GitHub Pages</strong><br />
+            GitHub, Inc.<br />
+            88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis<br />
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-vert-600 hover:text-vert-400">https://github.com</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Propriété intellectuelle</h2>
+          <p>
+            L'ensemble des contenus (textes, images, logos, éléments graphiques) présents sur ce site sont la propriété exclusive de Komizo Partners ou de leurs auteurs respectifs. Toute reproduction, représentation ou diffusion, en tout ou partie, sans autorisation préalable écrite est interdite.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Responsabilité</h2>
+          <p>
+            Les informations fournies sur ce site le sont à titre indicatif. Komizo Partners s'efforce de maintenir des informations exactes et à jour mais ne garantit pas l'exhaustivité ni l'exactitude des contenus. Komizo Partners ne saurait être tenu responsable des erreurs ou omissions, ni des dommages résultant de l'utilisation des informations diffusées.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Liens externes</h2>
+          <p>
+            Ce site peut contenir des liens vers des sites tiers. Komizo Partners n'exerce aucun contrôle sur le contenu de ces sites et décline toute responsabilité quant à leur contenu ou à leur politique de confidentialité.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Crédits</h2>
+          <p>
+            Conception et développement : Komizo Partners.<br />
+            Typographie : Outfit (Google Fonts).
+          </p>
+        </section>
+      </div>
+
+      <div class="mt-12">
+        <a href={`${base}`} class="text-sm text-vert-600 hover:text-vert-400 no-underline">← Retour à l'accueil</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Politique de confidentialité | Komizo Partners">
+  <Header />
+  <main class="pt-24 pb-16">
+    <div class="mx-auto w-full max-w-3xl px-6 lg:px-10">
+      <h1 class="text-3xl font-bold text-marine-800 mb-10">Politique de confidentialité</h1>
+
+      <div class="space-y-8 text-sm text-marine-800/80 leading-relaxed">
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Responsable du traitement</h2>
+          <p>
+            <strong>Komizo Partners</strong> — SAS à mission<br />
+            Email : <a href="mailto:corentin@komizo-partners.com" class="text-vert-600 hover:text-vert-400">corentin@komizo-partners.com</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Données collectées</h2>
+          <p>Lors de l'utilisation du formulaire de contact, nous collectons :</p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li>Nom et prénom</li>
+            <li>Adresse email</li>
+            <li>Nom de l'organisation (facultatif)</li>
+            <li>Message</li>
+          </ul>
+          <p class="mt-2">
+            Aucune donnée n'est collectée automatiquement (pas de cookies analytiques, pas de tracker tiers).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Finalité du traitement</h2>
+          <p>
+            Les données collectées via le formulaire de contact sont utilisées exclusivement pour répondre à votre demande. Elles ne sont ni vendues, ni cédées à des tiers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Base légale</h2>
+          <p>
+            Le traitement repose sur votre consentement explicite, donné lors de l'envoi du formulaire de contact (case à cocher RGPD).
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Durée de conservation</h2>
+          <p>
+            Les données de contact sont conservées pour la durée nécessaire au traitement de votre demande, et au maximum 12 mois après le dernier échange.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Sous-traitant technique</h2>
+          <p>
+            Le formulaire de contact utilise le service <strong>FormSubmit.co</strong> pour l'envoi des messages. Ce service agit en tant que sous-traitant technique et ne conserve pas vos données au-delà de la transmission.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Vos droits</h2>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :
+          </p>
+          <ul class="list-disc pl-5 mt-2 space-y-1">
+            <li><strong>Droit d'accès</strong> : obtenir une copie de vos données personnelles</li>
+            <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+            <li><strong>Droit à l'effacement</strong> : demander la suppression de vos données</li>
+            <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données</li>
+            <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré</li>
+          </ul>
+          <p class="mt-2">
+            Pour exercer ces droits, contactez-nous à : <a href="mailto:corentin@komizo-partners.com" class="text-vert-600 hover:text-vert-400">corentin@komizo-partners.com</a>
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Cookies</h2>
+          <p>
+            Ce site n'utilise aucun cookie analytique ni de suivi. Aucune donnée de navigation n'est collectée ou transmise à des services tiers.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg font-semibold text-marine-800 mb-2">Réclamation</h2>
+          <p>
+            Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" class="text-vert-600 hover:text-vert-400">www.cnil.fr</a>.
+          </p>
+        </section>
+
+        <p class="text-xs text-marine-800/40 italic mt-8">
+          Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
+        </p>
+      </div>
+
+      <div class="mt-12">
+        <a href={`${base}`} class="text-sm text-vert-600 hover:text-vert-400 no-underline">← Retour à l'accueil</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -6,54 +6,54 @@ import TeamGrid from '../components/TeamGrid.astro';
 import ContactForm from '../components/ContactForm.astro';
 
 const base = import.meta.env.BASE_URL;
-const heroImage = `${base}images/hero/hero-bg.jpg`;
+const heroImage = `${base}images/hero/hero-bg.webp`;
 const logoUrl = `${base}images/logos/komizo-logo-blanc.png`;
 
 const references = [
   {
-    sector: 'ETI — Aide à domicile',
+    sector: 'Destia — Aide à domicile',
     detail: 'Leader français, 10 000 salariés, accompagnée par des fonds de private equity',
     enjeu: 'Accompagnement à la transformation en société à mission (depuis 2022)',
     intervention: 'Animation d\'un groupe RSE, co-construction d\'une raison d\'être et d\'engagements stratégiques, structuration business x ESG 360°',
     resultat: 'Amélioration du bien-être des auxiliaires de vie (73% → 78%), baisse significative du turnover et de l\'absentéisme',
     verbatim: 'L\'accompagnement de Komizo a été un catalyseur essentiel pour nous, non seulement dans notre engagement à devenir une référence en matière d\'aide à domicile, mais aussi dans notre transformation en société à mission. Komizo nous challenge beaucoup, et ce de manière intelligente : c\'est ce qu\'on aime !',
-    auteur: 'Président'
+    auteur: 'Xavier Mura, Président'
   },
   {
-    sector: 'PME industrielle — Leader mondial',
-    detail: '250 salariés, production de gants de boîtes à gants, sous private equity',
+    sector: 'Piercan — PME industrielle',
+    detail: '250 salariés, leader mondial de la production de gants de boîtes à gants, sous private equity',
     enjeu: 'Accompagnement à la transformation durable (depuis 2023)',
     intervention: 'Sensibilisation à tous les niveaux, structuration de la politique RSE, création et animation d\'un comité RSE',
     resultat: 'Réduction de 29% de l\'intensité carbone, développement de l\'éco-conception, embarquement de la filiale US',
-    verbatim: 'Komizo est un v\u00e9ritable catalyseur de la transformation environnementale et sociale. Leur approche nous aide \u00e0 structurer notre strat\u00e9gie RSE de mani\u00e8re concr\u00e8te et pragmatique. La combinaison de nos \u00e9nergies nous insuffle un dynamisme puissant et inspirant pour motiver l\'ensemble des collaborateurs, y compris notre filiale am\u00e9ricaine.',
-    auteur: 'Directrice QHSE et RSE'
+    verbatim: 'Komizo est un véritable catalyseur de la transformation environnementale et sociale. Leur approche nous aide à structurer notre stratégie RSE de manière concrète et pragmatique. La combinaison de nos énergies nous insuffle un dynamisme puissant et inspirant pour motiver l\'ensemble des collaborateurs, y compris notre filiale américaine.',
+    auteur: 'Virginie Bonneau, Directrice QHSE et RSE'
   },
   {
-    sector: 'Private equity — 4 Mds€ sous gestion',
+    sector: 'Siparex — Private equity — 4 Mds€ sous gestion',
     detail: 'Acteur indépendant du capital-investissement',
     enjeu: 'Accompagnement opérationnel du fonds ETI (depuis 2023)',
     intervention: 'Operating Partner ESG externalisé pour dix participations, depuis le sourcing jusqu\'à l\'exit',
     resultat: 'Création de valeur durable, meilleur pilotage des risques et opportunités',
     verbatim: 'Komizo travaille avec nous en tant que référent ESG opérationnel pour dix de nos participations. Leur approche est engagée, pragmatique et business. Ils interviennent depuis le sourcing jusqu\'au suivi opérationnel. Komizo travaille comme partenaire de confiance, avec un vrai rôle d\'Operating Partner externalisé.',
-    auteur: 'Partner'
+    auteur: 'Florent Lauzet, Partner'
   },
   {
-    sector: 'Infrastructures durables — 20 Mds€ sous gestion',
-    detail: 'Société d\'investissement indépendante spécialisée',
+    sector: 'Meridiam — Infrastructures durables — 20 Mds€ sous gestion',
+    detail: 'Société d\'investissement indépendante à mission',
     enjeu: 'Création et déploiement d\'une société de projet à impact (depuis 2023)',
     intervention: 'Chefferie de projet d\'un consortium public-privé, rôle de Direction du développement',
     resultat: 'Lancement opérationnel de la société de projet',
     verbatim: 'Grâce aux compétences économico-financières de Corentin, à son énergie communicative et à sa capacité à animer un projet collectif, nous sommes proches du lancement opérationnel de ce projet particulièrement difficile et ambitieux.',
-    auteur: 'Directeur de l\'investissement local et durable'
+    auteur: 'Olivier Noblecourt, Directeur de l\'investissement local et durable'
   },
   {
-    sector: 'Fonds early-stage — 700M€ sous gestion',
-    detail: 'Fonds d\'investissement européen',
-    enjeu: 'Création et déploiement d\'un fonds à impact (depuis 2019)',
+    sector: 'XAnge — VC — 700M€ sous gestion',
+    detail: 'Fonds d\'investissement early-stage européen',
+    enjeu: 'Création et déploiement du fonds Mutuelles Impact (depuis 2019)',
     intervention: 'Lead sur la réponse à appel d\'offres (remporté), structuration du fonds, Operating Partner Impact',
     resultat: 'Gain de l\'appel d\'offres, développement de la thématique impact x santé (près de 100 M€ sous gestion)',
     verbatim: 'L\'implication de Corentin a été précieuse dès la phase de l\'appel d\'offres. Corentin nous a accompagné dans l\'analyse d\'opportunités d\'investissement, la construction et le suivi de feuilles de route impact.',
-    auteur: 'Directeur Général Délégué'
+    auteur: 'Andréas Gall, Directeur Général Délégué'
   }
 ];
 
@@ -63,14 +63,42 @@ const engagements = [
   { title: 'Autonomie client', detail: 'Monter en compétences nos clients — notre objectif : les rendre autonomes' },
   { title: 'Équilibre d\'équipe', detail: 'Prendre soin de notre équilibre pour durer — sans équipe solide, pas d\'accompagnement de qualité' },
   { title: 'Zéro vol en Europe', detail: 'Pour tous nos déplacements professionnels' },
-  { title: '2 % du CA reversé', detail: '12 projets soutenus depuis 2022', id: 'asso' },
-  { title: '20 % du résultat net', detail: 'Réinvesti dans des startups à impact', id: 'startup' },
   { title: '1 événement / an', detail: 'Pour essaimer au-delà de nos missions' },
+];
+
+const comiteMission = [
+  {
+    name: 'Anaïs Picard',
+    role: 'Impact & Société à mission',
+    photo: `${base}images/team/comite-mission/anais-picard.webp`,
+    bio: 'Ex Chief Sustainability Officer, KEM ONE. 10 ans au sein du Groupe Rocher, qu\'elle a accompagné jusqu\'à devenir le premier groupe international société à mission. Diplômée d\'emlyon et formée en prospective.'
+  },
+  {
+    name: 'Alice Morillon',
+    role: 'ESG & Private Equity',
+    photo: `${base}images/team/comite-mission/alice-morillon.webp`,
+    bio: 'Head of Sustainability & Impact, Archimed. Fondatrice de l\'équipe ESG-Impact d\'Archimed, leader mondial du capital-investissement en santé. Parcours en entrepreneuriat social en Asie et en conseil Sustainability chez PwC.'
+  },
+  {
+    name: 'Michel du Peloux',
+    role: 'Santé & Management',
+    photo: `${base}images/team/comite-mission/michel-du-peloux.webp`,
+    bio: 'Médecin. Ancien dirigeant de groupes internationaux de santé (Merck, Mérieux Nutrisciences), aujourd\'hui engagé sur le sujet de la santé mentale chez les étudiants. Double culture médecine et management.'
+  },
+  {
+    name: 'Guillaume Rebaudet',
+    role: 'Private Equity & Entrepreneuriat',
+    photo: `${base}images/team/comite-mission/guillaume-rebaudet.webp`,
+    bio: 'Partner, Siparex ETI. 15 ans chez Siparex. Premier à avoir fait confiance à Komizo en 2019 pour accompagner la création d\'un fonds à impact et la transformation de PME-ETI sous LBO.'
+  }
 ];
 ---
 
 <BaseLayout>
   <Header />
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-vert-400 z-50 transition-none" style="width:0%"></div>
 
   <main id="main-content" class="pt-16">
 
@@ -89,9 +117,9 @@ const engagements = [
           <p class="mt-8 max-w-2xl text-lg sm:text-xl text-white/75 leading-relaxed">
             Nous accompagnons PME-ETI et investisseurs sur le temps long pour renforcer durablement leur performance en intégrant l'impact au cœur du modèle d'affaires.
           </p>
-          <div class="mt-12 flex flex-wrap gap-4">
-            <a href="#contact" class="btn btn-primary text-base px-8 py-4">Nous contacter</a>
-            <a href="#collectif" class="btn btn-secondary border-white/30 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4">Rejoindre notre collectif</a>
+          <div class="mt-12 flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="#contact" class="btn btn-primary text-base px-8 py-4 text-center">Nous contacter</a>
+            <a href="#partenaires" class="btn btn-secondary border-white/30 text-white hover:bg-white/10 hover:border-white text-base px-8 py-4 text-center">Rejoindre les partenaires</a>
           </div>
         </div>
       </div>
@@ -103,47 +131,68 @@ const engagements = [
         <p class="text-[11px] font-semibold uppercase tracking-widest text-gris-400 text-center mb-6">Ils nous font confiance</p>
         <div class="logos-marquee">
           <div class="logos-track">
-            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" />
-            <img src={`${base}images/logos/clients/xange.png`} alt="XAnge" loading="lazy" />
-            <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" loading="lazy" />
+            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" class="logo-siparex" />
+            <img src={`${base}images/logos/clients/xange.webp`} alt="XAnge" loading="lazy" />
+            <img src={`${base}images/logos/clients/meridiam.webp`} alt="Meridiam" loading="lazy" />
             <img src={`${base}images/logos/clients/evolem.png`} alt="Evolem" loading="lazy" />
-            <img src={`${base}images/logos/clients/destia.png`} alt="Destia" loading="lazy" />
-            <img src={`${base}images/logos/clients/piercan.jpg`} alt="Piercan" loading="lazy" />
-            <img src={`${base}images/logos/clients/welcoop.png`} alt="Welcoop" loading="lazy" />
-            <img src={`${base}images/logos/clients/ratp-dev.jpg`} alt="RATP Dev" loading="lazy" />
+            <img src={`${base}images/logos/clients/destia.webp`} alt="Destia" loading="lazy" />
+            <img src={`${base}images/logos/clients/piercan.webp`} alt="Piercan" loading="lazy" />
+            <img src={`${base}images/logos/clients/welcoop.webp`} alt="Welcoop" loading="lazy" />
+            <img src={`${base}images/logos/clients/ratp-dev.webp`} alt="RATP Dev" loading="lazy" />
             <img src={`${base}images/logos/clients/mutualite-francaise.png`} alt="Mutualité Française" loading="lazy" />
             <img src={`${base}images/logos/clients/bpi.png`} alt="Bpifrance" loading="lazy" />
             <img src={`${base}images/logos/clients/anru.png`} alt="ANRU" loading="lazy" />
             <img src={`${base}images/logos/clients/altema.png`} alt="Altema" loading="lazy" />
-            <img src={`${base}images/logos/clients/sodikart.png`} alt="Sodikart" loading="lazy" />
+            <img src={`${base}images/logos/clients/sodikart.webp`} alt="Sodikart" loading="lazy" />
             <img src={`${base}images/logos/clients/odontolia.png`} alt="Odontolia" loading="lazy" />
-            <img src={`${base}images/logos/clients/lbm.png`} alt="LBM" loading="lazy" />
+            <img src={`${base}images/logos/clients/lbm.webp`} alt="LBM" loading="lazy" />
             <img src={`${base}images/logos/clients/lauralu.png`} alt="Lauralu" loading="lazy" />
-            <img src={`${base}images/logos/clients/sedia.png`} alt="Sedia" loading="lazy" />
+            <img src={`${base}images/logos/clients/sedia.webp`} alt="Sedia" loading="lazy" />
             <img src={`${base}images/logos/clients/golocal.png`} alt="Golocal" loading="lazy" />
-            <img src={`${base}images/logos/clients/lri.jpg`} alt="LRI" loading="lazy" />
-            <img src={`${base}images/logos/clients/yci-sante.jpg`} alt="Yci Santé" loading="lazy" />
-            <!-- Duplicate set for seamless loop -->
-            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" />
-            <img src={`${base}images/logos/clients/xange.png`} alt="XAnge" loading="lazy" />
-            <img src={`${base}images/logos/clients/meridiam.png`} alt="Meridiam" loading="lazy" />
+            <img src={`${base}images/logos/clients/lri.webp`} alt="LRI" loading="lazy" />
+            <img src={`${base}images/logos/clients/yci-sante.webp`} alt="Yci Santé" loading="lazy" />
+            <!-- Duplicate set 2 for seamless loop -->
+            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" class="logo-siparex" />
+            <img src={`${base}images/logos/clients/xange.webp`} alt="XAnge" loading="lazy" />
+            <img src={`${base}images/logos/clients/meridiam.webp`} alt="Meridiam" loading="lazy" />
             <img src={`${base}images/logos/clients/evolem.png`} alt="Evolem" loading="lazy" />
-            <img src={`${base}images/logos/clients/destia.png`} alt="Destia" loading="lazy" />
-            <img src={`${base}images/logos/clients/piercan.jpg`} alt="Piercan" loading="lazy" />
-            <img src={`${base}images/logos/clients/welcoop.png`} alt="Welcoop" loading="lazy" />
-            <img src={`${base}images/logos/clients/ratp-dev.jpg`} alt="RATP Dev" loading="lazy" />
+            <img src={`${base}images/logos/clients/destia.webp`} alt="Destia" loading="lazy" />
+            <img src={`${base}images/logos/clients/piercan.webp`} alt="Piercan" loading="lazy" />
+            <img src={`${base}images/logos/clients/welcoop.webp`} alt="Welcoop" loading="lazy" />
+            <img src={`${base}images/logos/clients/ratp-dev.webp`} alt="RATP Dev" loading="lazy" />
             <img src={`${base}images/logos/clients/mutualite-francaise.png`} alt="Mutualité Française" loading="lazy" />
             <img src={`${base}images/logos/clients/bpi.png`} alt="Bpifrance" loading="lazy" />
             <img src={`${base}images/logos/clients/anru.png`} alt="ANRU" loading="lazy" />
             <img src={`${base}images/logos/clients/altema.png`} alt="Altema" loading="lazy" />
-            <img src={`${base}images/logos/clients/sodikart.png`} alt="Sodikart" loading="lazy" />
+            <img src={`${base}images/logos/clients/sodikart.webp`} alt="Sodikart" loading="lazy" />
             <img src={`${base}images/logos/clients/odontolia.png`} alt="Odontolia" loading="lazy" />
-            <img src={`${base}images/logos/clients/lbm.png`} alt="LBM" loading="lazy" />
+            <img src={`${base}images/logos/clients/lbm.webp`} alt="LBM" loading="lazy" />
             <img src={`${base}images/logos/clients/lauralu.png`} alt="Lauralu" loading="lazy" />
-            <img src={`${base}images/logos/clients/sedia.png`} alt="Sedia" loading="lazy" />
+            <img src={`${base}images/logos/clients/sedia.webp`} alt="Sedia" loading="lazy" />
             <img src={`${base}images/logos/clients/golocal.png`} alt="Golocal" loading="lazy" />
-            <img src={`${base}images/logos/clients/lri.jpg`} alt="LRI" loading="lazy" />
-            <img src={`${base}images/logos/clients/yci-sante.jpg`} alt="Yci Santé" loading="lazy" />
+            <img src={`${base}images/logos/clients/lri.webp`} alt="LRI" loading="lazy" />
+            <img src={`${base}images/logos/clients/yci-sante.webp`} alt="Yci Santé" loading="lazy" />
+            <!-- Duplicate set 3 for extra coverage -->
+            <img src={`${base}images/logos/clients/siparex.svg`} alt="Siparex" loading="lazy" class="logo-siparex" />
+            <img src={`${base}images/logos/clients/xange.webp`} alt="XAnge" loading="lazy" />
+            <img src={`${base}images/logos/clients/meridiam.webp`} alt="Meridiam" loading="lazy" />
+            <img src={`${base}images/logos/clients/evolem.png`} alt="Evolem" loading="lazy" />
+            <img src={`${base}images/logos/clients/destia.webp`} alt="Destia" loading="lazy" />
+            <img src={`${base}images/logos/clients/piercan.webp`} alt="Piercan" loading="lazy" />
+            <img src={`${base}images/logos/clients/welcoop.webp`} alt="Welcoop" loading="lazy" />
+            <img src={`${base}images/logos/clients/ratp-dev.webp`} alt="RATP Dev" loading="lazy" />
+            <img src={`${base}images/logos/clients/mutualite-francaise.png`} alt="Mutualité Française" loading="lazy" />
+            <img src={`${base}images/logos/clients/bpi.png`} alt="Bpifrance" loading="lazy" />
+            <img src={`${base}images/logos/clients/anru.png`} alt="ANRU" loading="lazy" />
+            <img src={`${base}images/logos/clients/altema.png`} alt="Altema" loading="lazy" />
+            <img src={`${base}images/logos/clients/sodikart.webp`} alt="Sodikart" loading="lazy" />
+            <img src={`${base}images/logos/clients/odontolia.png`} alt="Odontolia" loading="lazy" />
+            <img src={`${base}images/logos/clients/lbm.webp`} alt="LBM" loading="lazy" />
+            <img src={`${base}images/logos/clients/lauralu.png`} alt="Lauralu" loading="lazy" />
+            <img src={`${base}images/logos/clients/sedia.webp`} alt="Sedia" loading="lazy" />
+            <img src={`${base}images/logos/clients/golocal.png`} alt="Golocal" loading="lazy" />
+            <img src={`${base}images/logos/clients/lri.webp`} alt="LRI" loading="lazy" />
+            <img src={`${base}images/logos/clients/yci-sante.webp`} alt="Yci Santé" loading="lazy" />
           </div>
         </div>
       </div>
@@ -170,105 +219,64 @@ const engagements = [
           <p class="text-sm italic text-marine-800/60">
             Komizo signifie « prendre soin » en grec ancien.
           </p>
-          <div class="flex flex-wrap gap-2 mt-2">
+        </div>
+
+        <div class="space-y-6 reveal" style="--delay:120ms">
+          <div class="flex flex-wrap gap-2">
             <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Écoute active</span>
             <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Non dogmatique</span>
             <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Apporteurs de sens</span>
             <span class="inline-flex items-center rounded-full bg-marine-800/5 px-3 py-1 text-xs font-medium text-marine-800">Bousculeurs bienveillants</span>
           </div>
 
-        </div>
-
-        <div class="reveal" style="--delay:120ms">
           <div class="rounded-2xl bg-vert-100 p-8">
             <h3 class="text-xl font-semibold text-marine-800 mb-4">Ce qui nous distingue</h3>
             <p class="text-marine-800/70">
-              Contrairement aux cabinets classiques, nous intervenons généralement en immersion — une à deux journées par semaine, sur plusieurs années, à la frontière de la finance et de l'opérationnel — avec un interlocuteur senior dédié, appuyé par un collectif de freelances spécialisés.
+              Contrairement aux cabinets classiques, nous intervenons généralement en immersion — une à deux journées par semaine, sur plusieurs années, à la frontière de la finance et de l'opérationnel — avec un interlocuteur senior dédié, appuyé par un réseau de partenaires spécialisés.
             </p>
           </div>
         </div>
       </div>
+    </Section>
 
-      <!-- ENGAGEMENTS — pleine largeur -->
-      <div class="mt-14 reveal">
-        <div class="rounded-2xl border border-gris-200 p-6 sm:p-8">
-          <h3 class="text-xl font-semibold text-marine-800 mb-6">Nos engagements</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {engagements.map(({ title, detail, id }) => (
-              <div class:list={["flex items-start gap-3 rounded-xl p-4", id === 'asso' || id === 'startup' ? 'bg-vert-100/80 border border-vert-400/20' : 'bg-gris-100/60']} id={id ? `engagement-${id}` : undefined}>
-                <svg class="w-5 h-5 flex-shrink-0 text-vert-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <div>
-                  <p class="text-sm font-semibold text-marine-800 leading-snug">{title}</p>
-                  <p class="text-xs text-marine-800/55 mt-1 leading-relaxed">{detail}</p>
-                </div>
-              </div>
-            ))}
+    <!-- ÉQUIPE -->
+    <Section id="equipe" title="L'équipe Komizo" tone="muted">
+      <TeamGrid />
+
+      <!-- Rejoindre les partenaires -->
+      <div id="partenaires" class="mt-16 rounded-2xl bg-marine-800 p-8 text-white reveal">
+        <h3 class="text-xl font-semibold text-white mb-3">Pourquoi rejoindre les partenaires ?</h3>
+        <p class="text-white/80 mb-4">
+          Une alternative au cabinet classique et au freelance isolé.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Missions booster</p>
+            <p class="text-xs text-white/70 mt-1">Développement professionnel</p>
           </div>
-
-          <!-- Associations & Startups avec flèches visuelles -->
-          <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <!-- 2% → Associations -->
-            <div class="relative">
-              <div class="flex items-center gap-2 mb-3">
-                <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-                <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">2 % du CA → Associations soutenues</p>
-              </div>
-              <div class="rounded-xl bg-gris-100/60 p-4">
-                <div class="flex flex-wrap items-center gap-4">
-                  <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/terre-de-milpa.png`} alt="Terre de Milpa" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/h-up.jpg`} alt="H'up" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/ville-a-velo.png`} alt="La Ville à Vélo" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/clubhouse.png`} alt="Clubhouse" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/mountain-wilderness.png`} alt="Mountain Wilderness" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/siel-bleu.png`} alt="Siel Bleu" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/telemaque.png`} alt="Télémaque" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/amasco.png`} alt="Amasco" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/foyer-ndsa.png`} alt="Foyer NDSA" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/associations/seuil.jpg`} alt="Seuil" class="h-8 w-auto" loading="lazy" />
-                </div>
-                <p class="text-xs text-marine-800/40 mt-3 italic">12 projets soutenus depuis 2022 — 29 300 € de dons</p>
-              </div>
-            </div>
-
-            <!-- 20% → Startups -->
-            <div class="relative">
-              <div class="flex items-center gap-2 mb-3">
-                <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-                <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">20 % du résultat net → Startups à impact</p>
-              </div>
-              <div class="rounded-xl bg-gris-100/60 p-4">
-                <div class="flex flex-wrap items-center gap-4">
-                  <img src={`${base}images/logos/startups/good-steps.png`} alt="Good Steps" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/startups/jobs-that-make-sense.png`} alt="Jobs that Make Sense" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/startups/oe.png`} alt="Oé" class="h-8 w-auto" loading="lazy" />
-                  <img src={`${base}images/logos/startups/qvrsv.png`} alt="QVRSV" class="h-8 w-auto" loading="lazy" />
-                </div>
-                <p class="text-xs text-marine-800/40 mt-3 italic">4 entreprises accompagnées — 20 025 € investis</p>
-              </div>
-            </div>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Support collectif</p>
+            <p class="text-xs text-white/70 mt-1">Engagement d'un cabinet</p>
           </div>
-
-          <a href="#" class="inline-flex items-center gap-2 text-vert-600 font-medium no-underline hover:text-vert-500 mt-6 text-sm">
-            Découvrir notre rapport de mission 2024 →
-          </a>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Sécurité financière</p>
+            <p class="text-xs text-white/70 mt-1">Gap réduit TJM/revenus</p>
+          </div>
+          <div class="rounded-lg bg-white/10 p-4">
+            <p class="text-sm font-semibold text-vert-400">Liberté</p>
+            <p class="text-xs text-white/70 mt-1">Choix des missions</p>
+          </div>
         </div>
+        <a href="#contact" class="btn btn-primary mt-6">Rejoindre les partenaires</a>
       </div>
     </Section>
 
     <!-- OFFRES -->
-    <Section id="offres" title="Nos offres" subtitle="Trois expertises complémentaires au service de la transformation durable" tone="muted">
-      <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 items-stretch">
+    <Section id="offres" title="Nos offres" subtitle="Deux expertises complémentaires au service de la transformation durable" tone="default">
+      <div class="space-y-10">
 
         <!-- Offre 1 : Dirigeants PME-ETI -->
-        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft">
+        <article class="card reveal p-8 lg:p-10 transition-shadow duration-300 hover:shadow-soft border-l-4 border-l-vert-400">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-vert-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -295,22 +303,23 @@ const engagements = [
 
           <p class="mt-6 text-sm italic text-marine-800/50">La stratégie ne vaut rien sans exécution — c'est pourquoi nous restons à vos côtés jusqu'au terrain.</p>
 
-          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
+          <div class="mt-6 pt-4 border-t border-gris-200">
             <p class="text-xs text-marine-800/50">Mission initiale de 6 à 12 mois • Min. 1 jour/semaine • Hybride présentiel/distanciel</p>
           </div>
         </article>
 
-        <!-- Offre 2 : Investisseurs — Portfolio -->
-        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:100ms">
+        <!-- Offre 2 : Investisseurs PE, VC, Infra -->
+        <article class="card reveal p-8 lg:p-10 transition-shadow duration-300 hover:shadow-soft border-l-4 border-l-corail-400" style="--delay:100ms">
           <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-corail-200 mb-4">
             <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
           </div>
           <h3 class="text-2xl font-semibold text-marine-800">Accompagnement opérationnel ESG / Impact</h3>
-          <p class="mt-2 text-sm font-medium text-corail-600">Pour renforcer la performance des actifs et sécuriser les sorties</p>
+          <p class="mt-2 text-sm font-medium text-corail-600">Pour les investisseurs PE, VC, infra</p>
 
-          <div class="mt-6 space-y-2 text-sm text-marine-800/70">
+          <p class="mt-5 text-sm font-semibold text-marine-800">Pour renforcer la performance des actifs et sécuriser les sorties</p>
+          <div class="mt-3 space-y-2 text-sm text-marine-800/70">
             <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Rôle d'Operating Partner ESG externalisé, du sourcing à l'exit</p>
             <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Due diligence ESG / Impact, plans de création de valeur durable, définition et suivi d'objectifs ESG en lien avec la dette (SLL) et le management package</p>
             <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Assistance à la réalisation des chantiers prioritaires — coordination prestataires, suivi, transmission</p>
@@ -318,29 +327,15 @@ const engagements = [
             <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Participation aux comités ESG / Impact / d'investissement</p>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
+          <p class="mt-6 text-sm font-semibold text-marine-800">Pour créer, structurer et faire grandir des véhicules d'investissement à impact</p>
+          <div class="mt-3 space-y-2 text-sm text-marine-800/70">
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>Structuration de la thèse d'impact et de la gouvernance</p>
+            <p class="flex items-start gap-2"><span class="text-corail-400 mt-0.5">•</span>PMO et chefferie de projet pour des projets à impact natif</p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gris-200">
             <p class="text-xs text-marine-800/50">Min. 1 jour/semaine • 12 mois minimum • Compatible avec un OP ESG salarié</p>
-          </div>
-        </article>
-
-        <!-- Offre 3 : Investisseurs — Véhicules à impact -->
-        <article class="card reveal p-8 flex flex-col transition-shadow duration-300 hover:shadow-soft" style="--delay:200ms">
-          <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-marine-800/10 mb-4">
-            <svg class="w-6 h-6 text-marine-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <h3 class="text-2xl font-semibold text-marine-800">Création de véhicules à impact</h3>
-          <p class="mt-2 text-sm font-medium text-marine-800/60">Pour créer, structurer et faire grandir des véhicules à impact</p>
-
-          <div class="mt-6 space-y-2 text-sm text-marine-800/70">
-            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>Réponse à appel d'offres pour la création de fonds à impact</p>
-            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>Structuration de la thèse d'impact et de la gouvernance</p>
-            <p class="flex items-start gap-2"><span class="text-marine-800/40 mt-0.5">•</span>PMO et chefferie de projet pour des projets à impact natif</p>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-gris-200 mt-auto">
-            <p class="text-xs text-marine-800/50">Mission sur mesure • Durée variable selon le projet</p>
           </div>
         </article>
       </div>
@@ -354,53 +349,21 @@ const engagements = [
       </div>
     </div>
 
-    <!-- ÉQUIPE -->
-    <Section id="equipe" title="L'équipe Komizo" tone="default">
-      <TeamGrid />
-
-      <!-- Rejoindre le collectif -->
-      <div id="collectif" class="mt-16 rounded-2xl bg-marine-800 p-8 text-white reveal">
-        <h3 class="text-xl font-semibold text-white mb-3">Pourquoi rejoindre le collectif ?</h3>
-        <p class="text-white/80 mb-4">
-          Une alternative au cabinet classique et au freelance isolé.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="rounded-lg bg-white/10 p-4">
-            <p class="text-sm font-semibold text-vert-400">Missions booster</p>
-            <p class="text-xs text-white/70 mt-1">Développement professionnel</p>
-          </div>
-          <div class="rounded-lg bg-white/10 p-4">
-            <p class="text-sm font-semibold text-vert-400">Support collectif</p>
-            <p class="text-xs text-white/70 mt-1">Engagement d'un cabinet</p>
-          </div>
-          <div class="rounded-lg bg-white/10 p-4">
-            <p class="text-sm font-semibold text-vert-400">Sécurité financière</p>
-            <p class="text-xs text-white/70 mt-1">Gap réduit TJM/revenus</p>
-          </div>
-          <div class="rounded-lg bg-white/10 p-4">
-            <p class="text-sm font-semibold text-vert-400">Liberté</p>
-            <p class="text-xs text-white/70 mt-1">Choix des missions</p>
-          </div>
-        </div>
-        <a href="#contact" class="btn btn-primary mt-6">Rejoindre le collectif</a>
-      </div>
-    </Section>
-
     <!-- RÉFÉRENCES -->
     <Section id="references" title="Références" subtitle="Des collaborations concrètes, mesurables et de long terme." tone="muted">
       <div class="relative">
         <!-- Carousel Navigation Arrows -->
-        <button id="refs-prev" type="button" class="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence précédente">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        <button id="refs-prev" type="button" class="absolute -left-2 sm:-left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence précédente">
+          <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
         </button>
-        <button id="refs-next" type="button" class="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence suivante">
+        <button id="refs-next" type="button" class="absolute -right-2 sm:-right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white shadow-soft border border-gris-200 flex items-center justify-center text-marine-800 hover:bg-vert-100 hover:text-vert-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Référence suivante">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
         </button>
 
         <div id="refs-carousel" class="overflow-hidden">
           <div id="refs-track" class="transition-transform duration-500 ease-in-out">
             {references.map((ref, i) => (
-              <article class="card p-8 refs-slide" data-index={i} style={i > 0 ? 'display:none' : ''}>
+              <article class="card p-5 sm:p-8 refs-slide" data-index={i} style={i > 0 ? 'display:none' : ''}>
                 <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8">
                   <div>
                     <div class="inline-flex items-center gap-2 mb-3">
@@ -429,12 +392,109 @@ const engagements = [
           </div>
         </div>
 
-        <!-- Dots indicator -->
-        <div class="flex justify-center gap-2 mt-6">
+        <!-- Numbered indicator -->
+        <div class="flex items-center justify-center gap-3 mt-6">
           {references.map((_, i) => (
-            <button type="button" class:list={["refs-dot w-2.5 h-2.5 rounded-full transition-colors", i === 0 ? "bg-vert-400" : "bg-gris-300"]} data-index={i} aria-label={`Référence ${i + 1}`}></button>
+            <button type="button" class:list={["refs-dot w-8 h-8 rounded-full text-xs font-semibold transition-all duration-300", i === 0 ? "bg-vert-400 text-white scale-110" : "bg-gris-200 text-marine-800/60 hover:bg-gris-300"]} data-index={i} aria-label={`Référence ${i + 1}`}>{i + 1}</button>
           ))}
         </div>
+      </div>
+    </Section>
+
+    <!-- ENGAGEMENTS -->
+    <Section id="engagements" title="Nos engagements" tone="default">
+      <div class="rounded-2xl border border-gris-200 p-6 sm:p-8 reveal">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {engagements.map(({ title, detail }) => (
+            <div class="flex items-start gap-3 rounded-xl bg-gris-100/60 p-4">
+              <svg class="w-5 h-5 flex-shrink-0 text-vert-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <p class="text-sm font-semibold text-marine-800 leading-snug">{title}</p>
+                <p class="text-xs text-marine-800/55 mt-1 leading-relaxed">{detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Associations & Startups -->
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <!-- 2% → Associations -->
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-3">
+              <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+              <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">2 % du CA → Associations soutenues</p>
+            </div>
+            <div class="rounded-xl bg-gris-100/60 p-4">
+              <div class="flex flex-wrap items-center gap-4">
+                <img src={`${base}images/logos/associations/campus-transition.png`} alt="Campus de la Transition" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/terre-de-milpa.webp`} alt="Terre de Milpa" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/h-up.webp`} alt="H'up" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/ville-a-velo.png`} alt="La Ville à Vélo" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/sport-dans-la-ville.svg`} alt="Sport dans la Ville" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/clubhouse.webp`} alt="Clubhouse" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/mountain-wilderness.webp`} alt="Mountain Wilderness" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/siel-bleu.webp`} alt="Siel Bleu" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/telemaque.png`} alt="Télémaque" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/amasco.png`} alt="Amasco" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/foyer-ndsa.webp`} alt="Foyer NDSA" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/associations/seuil.webp`} alt="Seuil" class="h-8 w-auto" loading="lazy" />
+              </div>
+              <p class="text-xs text-marine-800/40 mt-3 italic">12 projets soutenus depuis 2022 — 29 300 € de dons</p>
+            </div>
+          </div>
+
+          <!-- 20% → Startups -->
+          <div class="relative">
+            <div class="flex items-center gap-2 mb-3">
+              <svg class="w-5 h-5 text-vert-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+              <p class="text-xs font-semibold uppercase tracking-wide text-vert-600">20 % du résultat net → Startups à impact</p>
+            </div>
+            <div class="rounded-xl bg-gris-100/60 p-4">
+              <div class="flex flex-wrap items-center gap-4">
+                <img src={`${base}images/logos/startups/good-steps.png`} alt="Good Steps" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/startups/jobs-that-make-sense.png`} alt="Jobs that Make Sense" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/startups/oe.png`} alt="Oé" class="h-8 w-auto" loading="lazy" />
+                <img src={`${base}images/logos/startups/qvrsv.webp`} alt="QVRSV" class="h-8 w-auto" loading="lazy" />
+              </div>
+              <p class="text-xs text-marine-800/40 mt-3 italic">4 entreprises accompagnées — 20 025 € investis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- COMITÉ DE MISSION -->
+    <Section id="comite-mission" title="Comité de mission" tone="muted">
+      <p class="text-base sm:text-lg text-marine-800/70 max-w-3xl mb-10 reveal">
+        Quatre experts indépendants aux profils complémentaires — impact, private equity, santé, entrepreneuriat — qui se réunissent deux fois par an pour challenger notre mesure d'impact, évaluer la pertinence de nos missions et nous aider à maximiser notre contribution.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {comiteMission.map((member, index) => (
+          <article class="reveal rounded-2xl border border-gris-200 bg-white overflow-hidden shadow-card" style={`--delay:${index * 80}ms`}>
+            <div class="aspect-square">
+              <img
+                src={member.photo}
+                alt={`Portrait de ${member.name}`}
+                width="400"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+            </div>
+            <div class="p-5">
+              <h3 class="text-base font-semibold text-marine-800">{member.name}</h3>
+              <p class="text-xs font-medium text-vert-600 mt-0.5">{member.role}</p>
+              <p class="text-xs text-marine-800/60 mt-2 leading-relaxed">{member.bio}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </Section>
 
@@ -504,9 +564,10 @@ const engagements = [
           <p class="text-xs font-semibold uppercase tracking-widest text-white/40 mb-4">Navigation</p>
           <ul class="space-y-2">
             <li><a href="#apropos" class="text-sm text-white/70 no-underline hover:text-vert-400">À propos</a></li>
-            <li><a href="#offres" class="text-sm text-white/70 no-underline hover:text-vert-400">Nos offres</a></li>
             <li><a href="#equipe" class="text-sm text-white/70 no-underline hover:text-vert-400">L'équipe</a></li>
+            <li><a href="#offres" class="text-sm text-white/70 no-underline hover:text-vert-400">Nos offres</a></li>
             <li><a href="#references" class="text-sm text-white/70 no-underline hover:text-vert-400">Références</a></li>
+            <li><a href="#engagements" class="text-sm text-white/70 no-underline hover:text-vert-400">Engagements</a></li>
             <li><a href="#contact" class="text-sm text-white/70 no-underline hover:text-vert-400">Contact</a></li>
           </ul>
         </div>
@@ -533,11 +594,11 @@ const engagements = [
 
       <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p class="text-xs text-white/40">
-          © {new Date().getFullYear()} Komizo Partners — SASU à mission • Lyon, France
+          © {new Date().getFullYear()} Komizo Partners — SAS à mission • Lyon, France
         </p>
         <div class="flex items-center gap-4">
-          <a href="#contact" class="text-xs text-white/40 no-underline hover:text-white/70">Mentions légales</a>
-          <a href="#contact" class="text-xs text-white/40 no-underline hover:text-white/70">Politique de confidentialité</a>
+          <a href={`${base}mentions-legales`} class="text-xs text-white/40 no-underline hover:text-white/70">Mentions légales</a>
+          <a href={`${base}politique-de-confidentialite`} class="text-xs text-white/40 no-underline hover:text-white/70">Politique de confidentialité</a>
         </div>
       </div>
     </div>
