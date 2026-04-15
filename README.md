@@ -59,12 +59,20 @@ Au premier envoi, un email de confirmation est envoyé — cliquer dessus une fo
 
 ### 15 avril 2026
 
+**Retours client (v2) :**
+- Offres redesign premium : deux piliers côte à côte (desktop), headers colorés vert/corail, check icons, "Pour..." en gras dans encarts
+- Marquee logos : Meridiam, Mutualité Française, Labellemontagne agrandis (+30%), Sodikart réduit (−60%), Evolem réaligné verticalement
+- "Pourquoi rejoindre les partenaires" → "Pourquoi devenir partenaire"
+- Engagements : suppression texte superflu ("12 projets soutenus depuis 2022 —" / "4 entreprises accompagnées —"), logos associations/startups agrandis (h-8 → h-10)
+- Photo Agathe mise à jour
+- Fix logos fond noir : flatten all logos sur fond blanc + inversion Sodikart (texte blanc → noir) + CSS safety net `bg-white rounded p-1`
+
+**v2.1 :**
 - Restructuration complète des sections (ordre : hero → logos → à propos → équipe → offres → CTA → références → engagements → comité de mission → contact)
 - Renommage "collectif" → "partenaires" partout
 - Ajout section comité de mission (4 membres avec photos et bios)
 - Ajout section engagements (6 engagements + logos associations/startups)
 - Références enrichies avec vrais noms et verbatims
-- Offres empilées pleine largeur avec bordure colorée
 - Carousel références : fade-in animation + indicateurs numérotés
 - Barre de progression scroll
 - Micro-interactions boutons (scale hover/active)
