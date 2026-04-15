@@ -189,6 +189,10 @@ a:hover {
   height: 1.1rem;
 }
 
+.logos-track img.logo-sodikart {
+  height: 1.1rem;
+}
+
 .logos-track img:hover {
   filter: grayscale(0);
   opacity: 1;
