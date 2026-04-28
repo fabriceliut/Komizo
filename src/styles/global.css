@@ -194,11 +194,11 @@ a:hover {
 }
 
 .logos-track img.logo-meridiam {
-  height: 2.6rem;
+  height: 3rem;
 }
 
 .logos-track img.logo-mutualite {
-  height: 2.6rem;
+  height: 3rem;
 }
 
 .logos-track img.logo-lbm {
@@ -206,7 +206,10 @@ a:hover {
 }
 
 .logos-track img.logo-evolem {
-  transform: translateY(2px);
+  height: 2.4rem;
+  transform: translateY(-2px);
+  object-fit: contain;
+  object-position: top center;
 }
 
 .logos-track img:hover {
