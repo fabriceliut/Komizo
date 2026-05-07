@@ -186,30 +186,58 @@ a:hover {
 }
 
 .logos-track img.logo-siparex {
-  height: 1.1rem;
+  height: 0.9rem;
 }
 
 .logos-track img.logo-sodikart {
-  height: 0.75rem;
+  height: 0.7rem;
 }
 
 .logos-track img.logo-meridiam {
-  height: 3rem;
+  height: 4.1rem;
 }
 
 .logos-track img.logo-mutualite {
-  height: 3rem;
+  height: 3.6rem;
 }
 
 .logos-track img.logo-lbm {
-  height: 2.6rem;
+  height: 2.9rem;
 }
 
 .logos-track img.logo-evolem {
-  height: 2.4rem;
-  transform: translateY(-2px);
+  height: 1.6rem;
+  transform: translateY(-10px);
   object-fit: contain;
   object-position: top center;
+}
+
+.logos-track img.logo-yci {
+  height: 2.4rem;
+}
+
+.logos-track img.logo-bpi {
+  height: 1.8rem;
+}
+
+.logos-track img.logo-golocal {
+  height: 1.8rem;
+}
+
+.logos-track img.logo-anru {
+  height: 2.2rem;
+}
+
+.logos-track img.logo-destia {
+  height: 2.2rem;
+}
+
+.logos-track img.logo-odontolia {
+  height: 2.2rem;
+}
+
+.logos-track img.logo-lauralu {
+  height: 2.2rem;
 }
 
 .logos-track img:hover {
