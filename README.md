@@ -53,7 +53,7 @@ Push sur `main` → GitHub Actions build & deploy automatique sur Pages.
 ## Formulaire de contact
 
 Utilise [FormSubmit.co](https://formsubmit.co) — les soumissions arrivent à `corentin@komizo-partners.com`.
-Au premier envoi, un email de confirmation est envoyé — cliquer dessus une fois pour activer.
+L'adresse destinataire a déjà été activée auprès de FormSubmit. Le formulaire envoie les données en AJAX avec `FormData`; le CAPTCHA FormSubmit reste actif et un champ piège aide à filtrer les robots.
 
 ## Itérations
 

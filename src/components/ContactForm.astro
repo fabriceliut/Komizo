@@ -4,6 +4,7 @@ const formEndpoint = 'https://formsubmit.co/ajax/corentin@komizo-partners.com';
 
 <form id="contact-form" action={formEndpoint} method="POST" class="space-y-5">
   <input type="hidden" name="_subject" value="Nouveau message depuis komizo-partners.com" />
+  <input type="hidden" name="_template" value="table" />
   <input type="text" name="_honey" style="display:none" />
   <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
     <div>
@@ -71,15 +72,9 @@ const formEndpoint = 'https://formsubmit.co/ajax/corentin@komizo-partners.com';
         const response = await fetch(form.action, {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
             Accept: 'application/json'
           },
-          body: JSON.stringify({
-            ...Object.fromEntries(new FormData(form)),
-            _subject: 'Nouveau message depuis komizo-partners.com',
-            _template: 'table',
-            _captcha: 'false'
-          })
+          body: new FormData(form)
         });
         let data;
 
@@ -98,7 +93,7 @@ const formEndpoint = 'https://formsubmit.co/ajax/corentin@komizo-partners.com';
           status.className = 'min-h-[1.5rem] text-sm text-corail-500';
         }
       } catch {
-        status.textContent = 'Impossible d\u2019envoyer le formulaire pour le moment. Merci de r\u00e9essayer plus tard.';
+        status.textContent = 'Impossible d\u2019envoyer le formulaire pour le moment. Vous pouvez nous \u00e9crire directement \u00e0 corentin@komizo-partners.com.';
         status.className = 'min-h-[1.5rem] text-sm text-corail-500';
       } finally {
         submitButton.disabled = false;
